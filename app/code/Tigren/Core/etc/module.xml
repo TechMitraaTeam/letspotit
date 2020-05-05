@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Tigren Team
+ * @copyright Copyright (c) 2015 Tigren (https://www.tigren.com)
+ * @package Tigren_Core
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Tigren_Core" setup_version="1.0.0"/>
+</config>

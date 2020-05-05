@@ -1,0 +1,45 @@
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+@media (min-width: 980px) {
+
+    .mb-ajaxsuite-popup-wrapper {
+        max-width: 90%;
+        display: block;
+        min-width: 350px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+    .mb-ajaxsuite-popup-wrapper {
+        max-width: 90%;
+        display: block;
+    }
+}
+
+@media(min-width: 480px) and (max-width: 767px) {
+
+    .mb-ajaxsuite-popup-wrapper {
+        max-width: 90%;
+        display: block;
+    }
+    .mb-ajaxsuite-popup-wrapper .mb-register-popup .mb-ajaxlogin-register {
+        max-height: 400px;
+        overflow: scroll;
+    }
+}
+
+@media(max-width: 479px) {
+
+    .mb-ajaxsuite-popup-wrapper {
+        max-width: 90%;
+        display: block;
+        left: 5%!important;
+        top: 10%!important;
+    }
+    .mb-ajaxsuite-popup-wrapper .mb-register-popup .mb-ajaxlogin-register {
+        max-height: 400px;
+        overflow: scroll;
+    }
+}

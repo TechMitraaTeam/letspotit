@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.customer.content.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">customer-content-top</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.main">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.customer.sidebar.main.top"
+                   before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">customer-sidebar-main-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.customer.sidebar.main.bottom"
+                   after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">customer-sidebar-main-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.additional">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.customer.sidebar.additional.top"
+                   before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">customer-sidebar-additional-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.customer.sidebar.additional.bottom"
+                   after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">customer-sidebar-additional-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

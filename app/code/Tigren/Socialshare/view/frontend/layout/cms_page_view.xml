@@ -1,0 +1,29 @@
+<!--
+/**
+* @copyright Copyright (c) 2016 www.tigren.com
+*/
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Tigren_Socialshare::css/socialshare.css"/>
+    </head>
+    <body>
+        <referenceContainer name="page.main.title">
+            <block class="Tigren\Socialshare\Block\Socialshare" name="socialshare.undertitle" ifconfig="socialshare/share_pages/cms_pages"
+                   template="Tigren_Socialshare::socialshare_undertitle.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.additional">
+            <block class="Tigren\Socialshare\Block\Socialshare" name="socialshare.sidebar" ifconfig="socialshare/share_pages/cms_pages"
+                   template="Tigren_Socialshare::socialshare_sidebar.phtml" after="-"/>
+        </referenceContainer>
+        <referenceContainer name="page.wrapper">
+            <block class="Tigren\Socialshare\Block\Socialshare" name="socialshare.sunkmenu" ifconfig="socialshare/share_pages/cms_pages"
+                   template="Tigren_Socialshare::socialshare_sunkmenu.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="footer">
+            <block class="Tigren\Socialshare\Block\Socialshare" name="socialshare.footer" ifconfig="socialshare/share_pages/cms_pages"
+                   template="Tigren_Socialshare::socialshare_footer.phtml" before="-"/>
+        </referenceContainer>
+    </body>
+</page>

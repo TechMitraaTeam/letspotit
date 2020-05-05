@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Magento\Catalog\Block\Product\View" as="ajaxcart_error_message"
+               template="Tigren_Ajaxcart::error_message.phtml">
+            <block class="Tigren\Ajaxcart\Block\Product\ConfigurableOption" as="product_option" template="product/option.phtml"/>
+            <block class="Tigren\Ajaxcart\Block\Product\Image" as="product_image" template="product/image.phtml"/>
+        </block>
+    </container>
+</layout>

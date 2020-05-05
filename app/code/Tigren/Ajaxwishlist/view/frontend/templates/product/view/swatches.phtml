@@ -1,0 +1,30 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */
+echo $block->getViewFileUrl('Magento_Swatches::css/swatches.css') ?>"/>
+
+<div class="swatch-opt-conf" data-role="swatch-options"></div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage',
+        'tigren/swatchRenderer'
+    ], function ($) {
+        $('#mb-ajaxwishlist-wrapper [data-role=swatch-options]').SwatchRenderer({
+            "jsonConfig": <?php /* @escapeNotVerified */ echo $swatchOptions = $block->getJsonConfig(); ?>,
+            "jsonSwatchConfig": <?php /* @escapeNotVerified */ echo $swatchOptions = $block->getJsonSwatchConfig(); ?>,
+            "selectorProduct": '#mb-ajaxwishlist-wrapper',
+            "mediaCallback": "<?php /* @escapeNotVerified */ echo $block->getMediaCallback() ?>",
+            "onlyMainImg": <?php /* @escapeNotVerified */ echo $block->getVar('change_only_base_image', 'Magento_Swatches') ?: 'false'; ?>
+        });
+    });
+
+
+</script>

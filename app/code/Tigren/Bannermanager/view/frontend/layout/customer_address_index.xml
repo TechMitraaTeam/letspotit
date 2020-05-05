@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">customer-content-top</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

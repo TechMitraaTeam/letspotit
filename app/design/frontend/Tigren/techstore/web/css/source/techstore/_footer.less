@@ -1,0 +1,115 @@
+//
+//  FOOTER
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+  .footer {
+    .footer-container {
+      > .footer-top {
+        background: @color-gray-eb;
+        padding: @indent__l 0;
+        h3 {
+          font-family: @font-family__base;
+          font-size: 18px;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: @color-dark-gray70;
+        }
+        ul {
+          li {
+            a {
+              font-family: @font-family__base;
+              font-size: 14px;
+              color: @color-dark-gray70;
+              font-weight: 300;
+            }
+          }
+        }
+        .footer-newsletter {
+          .field.newsletter {
+            position: relative;
+            > .control {
+              input[type="email"] {
+                border: 2px solid @color-light-grayde;
+                height: @indent__base * 2;
+                border-radius: @indent__l;
+                box-shadow: none;
+              }
+              button.action.primary {
+                background: @color-white;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                border-radius: 0 @indent__l @indent__l 0;
+                width: @indent__base * 1.8;
+                height: @indent__base * 1.8;
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                i {
+                  color: @color-dark-gray70;
+                }
+              }
+            }
+          }
+        }
+        .social-links {
+          margin-bottom: @indent__base;
+          ul {
+            li {
+              display: inline-block;
+              margin-right: @indent__base;
+              margin-bottom: 0;
+              a {
+                padding: 0;
+                width: @indent__xl;
+                height: @indent__xl;
+                line-height: @indent__xl;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                background: @theme_main_color;
+                i {
+                  color: @color-white;
+                  font-size: @indent__m;
+                  line-height: @indent__xl;
+                }
+              }
+            }
+          }
+        }
+      }
+      > .footer-bottom {
+        background: @color-dark-gray70;
+        color: @color-white;
+        padding: @indent__s 0;
+        address {
+          margin: 0;
+        }
+        .accept-payment {
+          > ul {
+            > li {
+              display: inline-block;
+              margin: 0;
+              i {
+                color: @color-white;
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .footer-bottom {
+    address, .accept-payment {
+      text-align: center;
+      margin-top: 5px;
+    }
+  }
+}

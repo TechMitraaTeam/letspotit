@@ -1,0 +1,32 @@
+<div class="footer-container">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('tigren_techstore_footer_links')->toHtml();?>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="social-footer">
+                        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('tigren_techstore_social_links')->toHtml();?>
+                    </div>
+                    <div class="about-us-footer">
+                        <?php echo $block->getLayout()->createBlock('Magento\Newsletter\Block\Subscribe')->setTemplate('Magento_Newsletter::subscribe_footer.phtml')->toHtml(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <address><?php /* @escapeNotVerified */ echo $block->getCopyright() ?></address>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                    <div class="accept-payment">
+                        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('tigren_techstore_payments')->toHtml();?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span id="back-top"><span></span></span>
+</div>

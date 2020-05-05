@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tigren_Productlist::productlist" title="Advanced Product List" module="Tigren_Productlist" sortOrder="50"
+             resource="Tigren_Productlist::productlist"/>
+        <add id="Tigren_Productlist::settings" title="Settings" module="Tigren_Productlist" sortOrder="20"
+             parent="Tigren_Productlist::productlist" action="adminhtml/system_config/edit/section/productlist"
+             resource="Tigren_Productlist::settings"/>
+    </menu>
+</config>

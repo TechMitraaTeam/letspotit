@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ajaxlogin>
+            <general>
+                <enabled>1</enabled>
+                <login_destination>1</login_destination>
+                <slide_animation>show</slide_animation>
+            </general>
+            <social_login>
+                <enable>0</enable>
+                <!--<send_pass>0</send_pass>-->
+            </social_login>
+        </ajaxlogin>
+    </default>
+</config>

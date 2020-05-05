@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tigren_Bannermanager::bannermanager" title="Banner Manager" module="Tigren_Bannermanager"
+             sortOrder="50" resource="Tigren_Bannermanager::bannermanager"/>
+        <add id="Tigren_Bannermanager::block" title="Blocks" module="Tigren_Bannermanager" sortOrder="10"
+             parent="Tigren_Bannermanager::bannermanager" action="bannersmanager/block"
+             resource="Tigren_Bannermanager::block"/>
+        <add id="Tigren_Bannermanager::banner" title="Banners" module="Tigren_Bannermanager" sortOrder="20"
+             parent="Tigren_Bannermanager::bannermanager" action="bannersmanager/banners"
+             resource="Tigren_Bannermanager::banners"/>
+        <add id="Tigren_Bannermanager::setting" title="Settings" module="Tigren_Bannermanager" sortOrder="30"
+             parent="Tigren_Bannermanager::bannermanager" action="adminhtml/system_config/edit/section/bannersmanager"
+             resource="Tigren_Bannermanager::setting"/>
+    </menu>
+</config>

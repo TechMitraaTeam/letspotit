@@ -1,0 +1,81 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="footer-newsletter">
+    <h3>Newsletter</h3>
+    <div class="content">
+        <form class="form subscribe subscribe_footer"
+            novalidate
+            action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl() ?>"
+            method="post"
+            id="newsletter-validate-detail">
+            <div class="field newsletter">
+                <div class="control">
+                    <input name="email" type="email" id="newsletter"
+                                placeholder="<?php /* @escapeNotVerified */ echo __('Enter your email address') ?>"
+                           data-validate="{required:true, 'validate-email':true}"
+                    />
+<!--                    <input name="email" type="text" id="newsletter_email" placeholder="--><?php //echo __('Enter your email address') ?><!--" />-->
+                    <button id="subscribe-footer" class="action subscribe primary" title="<?php /* @escapeNotVerified */ echo __('Subscribe') ?>" type="submit">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage'
+    ], function ($) {
+        var dataForm = $('.subscribe_footer');
+        dataForm.mage('validation', {
+            submitHandler: function (form) {
+                event.preventDefault();
+                $.ajax({
+                    url: dataForm.attr('action'),
+                    data: dataForm.serializeArray(),
+                    type: 'POST',
+                    datatype: 'json',
+                    beforeSend: function () {
+                        var body = $('body').loader();
+                        body.loader('show');
+                    },
+                    success: function (response) {
+                        $('body').append(response.msg);
+                        $('.message-popup-newsletter').css({
+                            'position': 'fixed',
+                            'width' : 'auto',
+                            'border-radius': '0',
+                            'top': Math.max(0, (($(window).height() - $('.message-popup-newsletter').outerHeight()) / 2) ) + 'px',
+                            'right': Math.max(0, (($(window).width() - $('.message-popup-newsletter').outerWidth()) / 2)) + 'px',
+                            'left': Math.max(0, (($(window).width() - $('.message-popup-newsletter').outerWidth()) / 2)) + 'px'
+                        });
+
+                        $('.close').on('click', function () {
+                            $('.mb-popup-overlay').remove();
+                            $('.message-popup-newsletter').remove();
+                            $('html').removeClass('mb-opened');
+                        });
+                        $('.mb-popup-overlay').on('click', function () {
+                            $('.mb-popup-overlay').remove();
+                            $('.message-popup-newsletter').remove();
+                            $('html').removeClass('mb-opened');
+                        });
+                        var body = $('body').loader();
+                        body.loader('hide');
+                    }
+                });
+                return false;
+            }
+        });
+    });
+</script>

@@ -1,0 +1,20 @@
+<?php
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+if ($block->isCustomerLoggedIn()) {
+    ?>
+    <div id="mb-ajaxlogin-wrapper">
+        <?php echo $block->getChildHtml('ajaxlogin.popup.message'); ?>
+    </div>
+    <?php
+} else {
+    ?>
+    <div id="mb-ajaxlogin-wrapper">
+        <?php echo $block->getChildHtml('ajaxlogin.popup.login'); ?>
+        <?php echo $block->getChildHtml('ajaxlogin.popup.register'); ?>
+        <?php echo $block->getChildHtml('ajaxlogin.popup.forgot'); ?>
+        <?php echo $block->getChildHtml('ajaxlogin.popup.message'); ?>
+    </div>
+    <?php
+}

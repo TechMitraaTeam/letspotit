@@ -1,0 +1,101 @@
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxlogin-message-error {
+    text-align: center;
+}
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxlogin-message-error .mb-message-error{
+    color: red;
+    font-weight: bold;
+}
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxlogin-message-success {
+    text-align: center;
+}
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxlogin-message-success .mb-message-successs{
+    color: #546fff;
+    font-weight: bold;
+}
+
+@media (min-width: 768px), print {
+    .mb-ajaxsuite-popup-wrapper form.mb-login-form-register {
+        width: 600px;
+    }
+}
+
+.mb-ajaxsuite-popup-wrapper form.mb-login-form-register fieldset.info {
+    float: left;
+    width: 45%;
+}
+
+.mb-ajaxsuite-popup-wrapper form.mb-login-form-register fieldset.account {
+    float: right;
+    width: 45%;
+}
+
+.mb-ajaxsuite-popup-wrapper form.mb-login-form-register .mb-style-actions {
+    clear: both;
+}
+
+.mb-ajaxsuite-popup-wrapper form#form-validate a.action.back{
+    display: block;
+}
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxlogin-register {
+    min-height: 300px;
+}
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxsuite-popup-border .mb-login-container {
+    float: left;
+    padding: 10px 20px 0 0;
+}
+
+.mb-inline {
+    display: inline;
+}
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxsuite-popup-border .mb-login-social {
+    float: right;
+}
+
+.mb-ajaxsuite-popup-wrapper .mb-ajaxsuite-popup-border .actions {
+    text-align: center;
+}
+.mb-ajaxsuite-popup-wrapper .mb-ajaxsuite-popup-border .actions button.submit{
+    min-width: 40%;
+    min-height: 40px;
+    margin-bottom: 15px;
+    font-size: 120%;
+}
+.mb-ajaxsuite-popup-wrapper .mb-ajaxsuite-popup-border .actions .secondary{
+    display: inline-block;
+}
+
+/******** SOCIAL LOGIN *********/
+#social-login .social-login-btn {
+    height: 33px;
+    border: none;
+}
+#facebook-login-btn {
+    background: url("../images/facebook.png") no-repeat;
+    background-size: contain;
+    background-color: #3a5ba0;
+}
+#ggplus-login-btn {
+    background: url("../images/ggplus.png") no-repeat;
+    background-size: contain;
+    background-color: #e02f2f;
+}
+#twitter-login-btn {
+    background: url("../images/twitter.png") no-repeat;
+    background-size: contain;
+    background-color: #00abf1;
+}
+
+#social-login .social-login-btn span {
+    margin-left: 20px;
+    color: #ffffff;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+	<container name="root">
+		<block class="Tigren\Ajaxlogin\Block\Messages\Login\Success" as="ajaxlogin_messages_success" template="Tigren_Ajaxlogin::ajaxlogin/messages/login/success.phtml">
+		</block>
+    </container>
+</layout>

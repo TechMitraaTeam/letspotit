@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+ <!--@copyright Copyright (c) 2017 www.tigren.com-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tigren_Ajaxsuite::ajaxcart" title="Ajax Cart" module="Tigren_Ajaxsuite" sortOrder="5" parent="Tigren_Ajaxsuite::ajaxsuite_main" resource="Tigren_Ajaxsuite::ajaxcart" action="adminhtml/system_config/edit/section/ajaxcart" />
+    </menu>
+</config>

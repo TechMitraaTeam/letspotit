@@ -1,0 +1,39 @@
+/**
+* @copyright Copyright (c) 2016 www.tigren.com
+*/
+#tigren-social {
+    display: block;
+    width: 100%;
+    margin-bottom:20px;
+}
+#tigren-social .social-button {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.page-wrapper {position: relative;}
+#tigren-social.pos-sunkmenu .social-button {
+    display: block;
+}
+#tigren-social.pos-sunkmenu{
+    position:absolute; 
+    top:50px; 
+    left:0px; 
+    z-index:9999; 
+    border: 1px solid grey;
+    background-color:white;
+    margin: 0;
+    width: 50px;
+    height: 30px;
+}
+#tigren-social.pos-sunkmenu .label img{
+    width: 45px;
+    max-width: none;
+}
+#tigren-social.pos-sunkmenu .share-button-list{display:none; padding: 10px;}
+#tigren-social.pos-sunkmenu .share-button-list .social-button{
+    display:block; 
+    margin-bottom: 5px;
+}
+

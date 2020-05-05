@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="tigren" translate="label" sortOrder="9000">
+            <label>Tigren</label>
+        </tab>
+        <section id="ajaxsuite" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Ajax Suite</label>
+            <tab>tigren</tab>
+            <resource>Tigren_Ajaxsuite::config_ajaxsuite</resource>
+
+            <!--AJAX SUITE General-->
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Ajax Suite</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enabled_popupttl" translate="label" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Auto Close Notification Popup</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="popupttl" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Popup Will Close After</label>
+                    <depends>
+                        <field id="enabled_popupttl">1</field>
+                    </depends>
+                    <validate>validate-digits validate-digits-range digits-range-0-</validate>
+                </field>
+            </group>
+
+            <!--Popup Design and Effects-->
+            <group id="effects" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Popup Design and Effects</label>
+                <field id="animation" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Animation</label>
+                    <source_model>Tigren\Ajaxsuite\Model\Config\Source\Animation</source_model>
+                    <comment><![CDATA[Popup display effects.]]></comment>
+                </field>
+                <field id="background_color" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Color</label>
+                    <frontend_model>Tigren\Ajaxsuite\Block\Color</frontend_model>
+                </field>
+                <field id="header_background_color" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Background Color</label>
+                    <frontend_model>Tigren\Ajaxsuite\Block\Color</frontend_model>
+                </field>
+                <field id="header_text_color" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Text Color</label>
+                    <frontend_model>Tigren\Ajaxsuite\Block\Color</frontend_model>
+                </field>
+                <field id="button_text_color" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Text Color</label>
+                    <frontend_model>Tigren\Ajaxsuite\Block\Color</frontend_model>
+                </field>
+                <field id="button_background_color" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Background Color</label>
+                    <frontend_model>Tigren\Ajaxsuite\Block\Color</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

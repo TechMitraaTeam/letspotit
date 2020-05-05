@@ -1,0 +1,29 @@
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+@media screen and (min-width: 600px) {
+    #mb-ajaxcompare-wrapper {
+        width: 500px;
+    }
+}
+@media screen and (max-width: 600px) {
+    #mb-ajaxcompare-wrapper .ajaxcompare-buttons button.action{
+        margin: 0 0 10px;
+    }
+}
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box {
+    text-align: center;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box .product-name {
+    font-weight: bold;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box img.image {
+    max-width: 100%;
+    width: 30%;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-buttons{
+    margin: 10px 0;
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Magento\Catalog\Block\Product\View" as="ajaxwishlist_success_message"
+               template="Tigren_Ajaxwishlist::success_message.phtml">
+            <block class="Tigren\Ajaxwishlist\Block\Message" name="ajaxwishlist.message" template="message.phtml"/>
+            <block class="Tigren\Ajaxwishlist\Block\Product\ConfigurableOption" as="product_option" template="product/option.phtml"/>
+            <block class="Tigren\Ajaxwishlist\Block\Product\Image" as="product_image" template="product/image.phtml"/>
+        </block>
+    </container>
+</layout>

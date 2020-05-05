@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @copyright Copyright (c) 2016 www.tigren.com
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <socialshare>
+            <share_pages>
+                <product_details_page>0</product_details_page>
+                <category_details_page>0</category_details_page>
+                <cms_pages>0</cms_pages>
+            </share_pages>
+            <position>
+                <position>under_title</position>
+            </position>
+            <facebook>
+                <enable_facebook>0</enable_facebook>
+                <display_onlylike>0</display_onlylike>
+                <display_facebook_count>0</display_facebook_count>
+            </facebook>
+            <googleplus>
+                <enable_google_plus>0</enable_google_plus>
+                <display_google_count>0</display_google_count>
+            </googleplus>
+            <twitter>
+                <enable_twitter>0</enable_twitter>
+            </twitter>
+            <pinitsharing>
+                <enable_pinit>0</enable_pinit>
+                <display_pinit_count>0</display_pinit_count>
+            </pinitsharing>
+        </socialshare>
+    </default>
+</config>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_img_width" xsi:type="number">120</argument>
+                <argument name="logo_img_height" xsi:type="number">74</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="page.top">
+            <referenceBlock name="navigation.sections" remove="true"/>
+        </referenceContainer>
+        <referenceContainer name="header.container">
+            <container name="header.bottom.container" label="Header Bottom Container" as="headerBottomContainer" htmlTag="div" htmlClass="header-bottom-container" after="-">
+                <container name="header.bottom.content" label="Header Bottom Content" as="headerBottomContent" htmlTag="div" htmlClass="container" before="-">
+                    <block class="Magento\Framework\View\Element\Template" name="header.main.navigation" template="Magento_Theme::html/header/navigation.phtml">
+                        <block class="Magento\Framework\View\Element\Template" name="header.navigation.sections" before="-" template="Magento_Theme::html/sections.phtml">
+                            <arguments>
+                                <argument name="group_name" xsi:type="string">navigation-sections</argument>
+                                <argument name="group_css" xsi:type="string">nav-sections</argument>
+                            </arguments>
+                            <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                                <arguments>
+                                    <argument name="title" translate="true" xsi:type="string">MENU</argument>
+                                </arguments>
+                                <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="html/topmenu.phtml" ttl="3600" before="-"/>
+                            </block>
+                            <block class="Magento\Framework\View\Element\Template" name="page.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml">
+                                <arguments>
+                                    <argument name="title" translate="true" xsi:type="string">PAGES</argument>
+                                </arguments>
+                                <block class="Magento\Cms\Block\Block" name="techstore.header.horizontal.m.menu">
+                                    <arguments>
+                                        <argument name="block_id" xsi:type="string">tigren_techstore_header_horizontal_menu</argument>
+                                    </arguments>
+                                </block>
+                            </block>
+                        </block>
+                        <block class="Magento\Framework\View\Element\Template" name="horizontal.menu" template="Magento_Theme::html/header/menu_horizontal.phtml" />
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="header.panel">
+            <container name="quick.access" label="Quick Access Box" as="quickAccess" htmlTag="div" htmlClass="quick-access" before="top.links">
+                <block class="Magento\Framework\View\Element\Template" name="header.top.links" template="Magento_Theme::html/header/toplinks.phtml">
+                    <block class="Magento\Framework\View\Element\Template" name="header.myaccount.links" template="Magento_Customer::links.phtml"/>
+                </block>
+            </container>
+            <block class="Magento\Cms\Block\Block" name="techstore.header.contact.info">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">tigren_techstore_header_contact_info</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Wishlist\Block\Customer\Sidebar" name="header.wishlist.link" as="header-wishlist-link" after="minicart" template="Magento_Wishlist::header_link.phtml"/>
+        </referenceContainer>
+        <!--<referenceBlock name="store.settings.language" remove="true"/>-->
+        <!--<referenceContainer name="store.settings.currency" remove="true"/>-->
+        <referenceContainer name="report.bugs" remove="true"/>
+        <move element="currency" destination="quick.access" before="-"/>
+        <move element="store_language" destination="quick.access" after="currency"/>
+        <referenceContainer name="footer-container">
+            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer footer-wrapper">
+                <block class="Magento\Theme\Block\Html\Footer" name="footer.content" template="html/footer.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

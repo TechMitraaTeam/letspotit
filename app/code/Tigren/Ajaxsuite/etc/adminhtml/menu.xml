@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+ <!--@copyright Copyright (c) 2017 www.tigren.com-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tigren_Ajaxsuite::ajaxsuite_main" title="Ajax Suite" module="Tigren_Ajaxsuite" sortOrder="20" resource="Tigren_Ajaxsuite::ajaxsuite_main" />
+        <add id="Tigren_Ajaxsuite::ajaxsuite" title="Ajax Suite" module="Tigren_Ajaxsuite" sortOrder="1" parent="Tigren_Ajaxsuite::ajaxsuite_main" resource="Tigren_Ajaxsuite::ajaxsuite" action="adminhtml/system_config/edit/section/ajaxsuite" />
+    </menu>
+</config>

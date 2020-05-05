@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <popuppro>
+            <general>
+                <enabled_popup>1</enabled_popup>
+                <enabled_statistics>1</enabled_statistics>
+            </general>
+        </popuppro>
+    </default>
+</config>

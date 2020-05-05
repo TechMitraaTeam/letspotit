@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Wishlist\Block\Customer\Sidebar */
+?>
+<?php
+$wishlistHelper = $this->helper('Magento\Wishlist\Helper\Data');
+?>
+<?php if ($wishlistHelper->isAllow()) : ?>
+    <div class="header-wishlist-link hidden-xs" data-bind="scope: 'wishlist'">
+        <a href="<?php echo $this->getUrl('wishlist') ?>">
+            <span class="title"><?php echo __('My Wishlist') ?></span>
+            <!-- ko if: wishlist().counter -->
+            (<span data-bind="text: wishlist().counter" class="counter"></span>)
+            <!-- /ko -->
+        </a>
+    </div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+</script>
+<?php endif ?>

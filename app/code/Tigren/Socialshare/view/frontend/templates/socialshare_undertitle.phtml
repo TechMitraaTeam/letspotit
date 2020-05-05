@@ -1,0 +1,40 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+$position = $block->getScopeConfig('socialshare/position/position');
+$underTitleBlock = $block->getLayout()->getBlock('socialshare.sidebar');
+if ($position == 'undertitle' || ($position == 'sidebar' && !$underTitleBlock)) {
+    $enableFacebook = $block->getScopeConfig('socialshare/facebook/enable_facebook');
+    $enableTwitter = $block->getScopeConfig('socialshare/twitter/enable_twitter');
+    $enableGooglePlus = $block->getScopeConfig('socialshare/googleplus/enable_google_plus');
+    $enablePinit = $block->getScopeConfig('socialshare/pinitsharing/enable_pinit');
+    ?>
+
+    <div id="tigren-social" class="pos-<?php echo $position; ?>">
+        <div class="share-button-list">
+            <?php
+            if ($enableFacebook == 1):
+                echo $block->getFacebookButton();
+            endif;
+
+            if ($enableTwitter == 1):
+                echo $block->getTwitterButton();
+            endif;
+
+            if ($enableGooglePlus == 1):
+                echo $block->getGooglePlusButton();
+            endif;
+
+            if ($enablePinit == 1):
+                echo $block->getPinItButton();
+            endif;
+            ?>
+        </div>
+    </div>
+    <style>
+        h1.page-title {
+            margin-bottom: 20px;
+        }
+    </style>
+<?php } ?>

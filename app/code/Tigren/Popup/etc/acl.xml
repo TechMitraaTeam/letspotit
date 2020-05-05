@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Tigren_Popup::popup" title="Tigren Popup Plus" sortOrder="220">
+                    <resource id="Tigren_Popup::manage_popup" title="Popups" sortOrder="10"/>
+                    <resource id="Tigren_Popup::statistics" title="Statistics" sortOrder="20"/>
+                    <resource id="Tigren_Popup::settings" title="Settings" sortOrder="30"/>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Tigren_Popup::config_popuppro" title="Popup Plus Section"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

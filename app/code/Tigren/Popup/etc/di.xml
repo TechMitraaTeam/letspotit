@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Widget\Model\Widget\Instance">
+        <plugin name="mb_after_save_widget_instance" type="Tigren\Popup\Plugin\Model\Widget\Instance" sortOrder="0"/>
+    </type>
+    <type name="Magento\Newsletter\Controller\Subscriber\NewAction">
+        <plugin name="Newsletter_Subscriber_NewAction" type="Tigren\Popup\Controller\Newsletter\Index" sortOrder="10" />
+    </type>
+</config>

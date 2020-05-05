@@ -1,0 +1,17 @@
+<?php
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+
+$count = $block->getItemsCount();
+$qty = $block->getItemsQty();
+$subTotal = $block->getSubTotal();
+?>
+<div class="ajaxcart-message-cartinfo">
+    <p>
+        <?php echo __('There are ') ?>
+        <a href="<?php echo $block->getUrl('checkout/cart') ?>"><?php echo $qty . __(' items') ?></a>
+        <?php echo __(' in your cart.') ?>
+    </p>
+    <p><?php echo __('Cart Subtotal: ') ?><?php echo $this->helper('Tigren\Ajaxcart\Helper\Data')->getPriceWithCurrency($subTotal) ?></p>
+</div>

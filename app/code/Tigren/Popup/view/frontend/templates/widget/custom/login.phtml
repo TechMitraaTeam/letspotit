@@ -1,0 +1,91 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+?>
+<?php
+$popupHtmlId = $block->getPopupHtmlId();
+$popupTitle = $block->getData('popup_title');
+$loginDescription = $block->getData('login_description');
+?>
+
+<div id=<?php echo $popupHtmlId ?> class="mb-popup-container mb-no-view">
+<div class="mb-popup-border">
+    <div class="mb-popup-title"><strong><?php echo $popupTitle; ?></strong></div>
+    <div class="mb-popup-full mb-login-container">
+        <div class="block-content" aria-labelledby="block-customer-login-heading">
+            <form class="form form-login"
+                  action="<?php /* @escapeNotVerified */
+                  echo $block->getPostActionUrl() ?>"
+                  method="post"
+                  id="login-form"
+                  data-mage-init='{"validation":{}}'>
+                <?php echo $block->getBlockHtml('formkey'); ?>
+                <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
+                echo __('* Required Fields') ?>">
+                    <div class="field note"><?php /* @escapeNotVerified */
+                        echo $loginDescription ?></div>
+                    <div class="field email required">
+                        <label class="label" for="email"><span><?php /* @escapeNotVerified */
+                                echo __('Email') ?></span></label>
+                        <div class="control">
+                            <input name="login[username]"
+                                   value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                   id="email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
+                            echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+                        </div>
+                    </div>
+                    <div class="field password required">
+                        <label for="pass" class="label"><span><?php /* @escapeNotVerified */
+                                echo __('Password') ?></span></label>
+                        <div class="control">
+                            <input name="login[password]"
+                                   type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                   class="input-text" id="pass" title="<?php /* @escapeNotVerified */
+                            echo __('Password') ?>" data-validate="{required:true, 'validate-password':true}">
+                        </div>
+                    </div>
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button type="submit" class="action login primary" name="send" id="send2">
+                                <span><?php /* @escapeNotVerified */
+                                    echo __('Login') ?></span></button>
+                        </div>
+                        <div class="secondary"><a class="action remind" href="<?php /* @escapeNotVerified */
+                            echo $block->getForgotPasswordUrl() ?>"><span><?php /* @escapeNotVerified */
+                                    echo __('Forgot Your Password?') ?></span></a></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+require([
+    'jquery',
+    'mage/mage',
+    'tigren/popup'
+], function ($) {
+    "use strict";
+    $(document).ready(function($) {
+        $('body').mbPopup({
+            enabled_statistics: <?php echo $block->isEnabledStatistics() ?>,
+            impression_url: '<?php echo $block->getImpressionActionUrl() ?>',
+            instance_id: '<?php echo $block->getInstanceId() ?>',
+            popup_class: 'mb-popup-custom-contact-form',
+            content : $('#<?php echo $popupHtmlId ?>').html(),
+            popup_id: '<?php echo $popupHtmlId ?>',
+            cookie_expires : '<?php echo $block->getData('cookie_expires') ?>',
+            border_radius: '<?php echo $block->getData('border_radius') ?>' + '%',
+            popup_width: '<?php echo $block->getData('popup_width') == 'auto' ? $block->getData('popup_width') : $block->getData('popup_width') . 'px' ?>',
+            animate: '<?php echo $block->getData('popup_effect') ?>',
+            view_session: '<?php echo $block->getData('view_session') ?>',
+            view_seconds: '<?php echo $block->getData('view_seconds') ?>',
+            auto_close: '<?php echo $block->getData('auto_close') ?>'
+        });
+    });
+});
+
+</script>

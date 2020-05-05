@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <action name="ajaxcart/cart/showPopup">
+        <section name="cart"/>
+    </action>
+    <action name="ajaxcart/wishlist/showPopup">
+        <section name="cart"/>
+        <section name="wishlist"/>
+    </action>
+</config>

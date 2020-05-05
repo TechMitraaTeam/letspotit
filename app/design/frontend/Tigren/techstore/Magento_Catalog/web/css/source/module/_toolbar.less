@@ -1,0 +1,281 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+@toolbar-mode-icon-font-size: 30px;
+@toolbar-element-background: @panel__background-color;
+
+& when (@media-common = true) {
+
+    .page-products {
+        .columns {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar {
+        &:extend(.abs-add-clearfix all);
+    }
+
+    .toolbar-amount {
+        display: block;
+        line-height: @toolbar-mode-icon-font-size + 2;
+        margin: 0;
+        padding: 8px 0 0;
+        vertical-align: middle;
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+
+    .toolbar-products {
+        padding: @indent__s @indent__base;
+        text-align: center;
+        .lib-css(background, @color-light-grayde);
+        &:extend(.abs-add-clearfix all);
+
+        .pages {
+            display: none;
+
+            .products.wrapper ~ & {
+                display: block;
+            }
+        }
+
+        .limiter {
+            .control {
+                display: inline-block;
+            }
+        }
+    }
+
+    .sorter {
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+
+    .sorter-options {
+        margin: 0 0 0 7px;
+        width: auto;
+    }
+
+    .sorter-action {
+        vertical-align: top;
+        .lib-icon-font(
+        @icon-arrow-up,
+        @_icon-font-size: 28px,
+        @_icon-font-line-height: 32px,
+        @_icon-font-color: @header-icons-color,
+        @_icon-font-color-hover: @header-icons-color-hover,
+        @_icon-font-text-hide: true
+        );
+    }
+
+    .sorter.sort-desc {
+        &:before {
+            content: @icon-arrow-down;
+        }
+    }
+
+    .modes {
+        display: none;
+    }
+
+    .limiter-options {
+        margin: 0 5px 0 7px;
+        width: auto;
+    }
+
+    .limiter-label {
+        font-weight: 400;
+    }
+
+    .limiter {
+        .page-products .toolbar & {
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-products {
+        .columns {
+            padding-top: 0;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar {
+        .products.wrapper ~ & {
+            background: transparent;
+            margin: @indent__base 0 0;
+            padding: 0;
+        }
+        .products.wrapper ~ & .pages {
+            float: right;
+            &-items {
+                .item {
+                    line-height: @indent__xl;
+                    margin: 0 5px 0 0;
+                    float: left;
+                    width: @indent__xl;
+                    height: @indent__xl;
+                    border: 1px solid @color-light-grayde;
+                    &:last-child {
+                        margin: 0;
+                    }
+                    &.current, &:hover {
+                        background: @color-light-grayde;
+                    }
+                    a {
+                        font-family: @font-family__base;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: @color-dark-46;
+                        padding: 0;
+                        &.action {
+                            border: none;
+                            width: auto;
+                            margin: 0;
+                            &:before {
+                                font-size: @indent__xl;
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .toolbar-amount {
+        float: left;
+    }
+
+    .sorter {
+        float: right;
+    }
+
+    .modes {
+        display: inline-block;
+        float: right;
+        margin-right: 0;
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+
+    .modes-label {
+        &:extend(.abs-visually-hidden-desktop all);
+    }
+
+    .modes-mode {
+        .lib-css(color, @color-dark-46);
+        float: left;
+        font-weight: @font-weight__regular;
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+        &:not(.active) {
+            &:hover {
+                .lib-css(color, @text__color__muted);
+                background: darken(@toolbar-element-background, 7%);
+            }
+        }
+
+        &:last-child {
+        }
+
+        &.active {
+            .lib-css(color, @primary__color__light);
+            &:before {
+                .lib-css(color, @theme_main_color);
+            }
+        }
+
+        .lib-icon-font(
+        @icon-grid,
+        @_icon-font-size: @toolbar-mode-icon-font-size,
+        @_icon-font-text-hide: true,
+        @_icon-font-color: @color-dark-46,
+        @_icon-font-color-hover: @theme_main_color
+        );
+    }
+
+    .mode-list {
+        .lib-icon-font-symbol(@icon-list);
+    }
+
+    .limiter {
+        float: left;
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .toolbar {
+        .products.wrapper ~ & {
+            background: transparent;
+            margin: @indent__base 0 0;
+            padding: 0;
+        }
+        .products.wrapper ~ & .pages {
+            float: right;
+            &-items {
+                .item {
+                    line-height: @indent__xl;
+                    margin: 0 5px 0 0;
+                    float: left;
+                    width: @indent__xl;
+                    height: @indent__xl;
+                    border: 1px solid @color-light-grayde;
+                    &:last-child {
+                        margin: 0;
+                    }
+                    &.current, &:hover {
+                        background: @color-light-grayde;
+                    }
+                    a {
+                        font-family: @font-family__base;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: @color-dark-46;
+                        padding: 0;
+                        &.action {
+                            border: none;
+                            width: auto;
+                            margin: 0;
+                            &:before {
+                                font-size: @indent__xl;
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .limiter {
+        margin: 0 0 @indent__s;
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+}

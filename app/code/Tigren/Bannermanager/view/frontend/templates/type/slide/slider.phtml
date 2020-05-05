@@ -1,0 +1,34 @@
+<div class="tigren-bannermanager slider">
+    <?php
+    $htmlId = $block->getBannerItemHtmlId();
+    $bannerCollection = $block->getBannerCollection();
+    ?>
+    <script type="text/javascript">
+        require(['jquery','tigren/flexslider'], function($) {
+            $(document).ready(function($) {
+                var flexSliderSelector = '<?php echo $htmlId; ?>';
+                $('.' + flexSliderSelector).flexslider({
+                    animation: "slide",
+                });
+            });
+        });
+
+    </script>
+    <div class="tigren-bannermanager-slider">
+        <div id="<?php echo $htmlId ?>" class="flexslider flexslider-content-image <?php echo $htmlId ?>"
+             style="margin:auto">
+            <ul class="slides">
+                <?php foreach ($bannerCollection as $banner): ?>
+                    <li>
+                        <a href="<?php echo $banner->getBannerUrl() ?>"
+                           <?php echo $banner->getTarget() ? 'target="_blank" ' : ''; ?>style="display:block;">
+                            <img alt="<?php echo $banner->getTitle() ?>"
+                                 src="<?php echo $block->getBannerImageUrl($banner) ?>"
+                                 title="<?php echo $banner->getDescription() ?>"/>
+                        </a>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Tigren_Bannermanager::bannermanager" title="Tigren Banner Manager"
+                          sortOrder="200">
+                    <resource id="Tigren_Bannermanager::block" title="Blocks" sortOrder="10"/>
+                    <resource id="Tigren_Bannermanager::banner" title="Banners" sortOrder="20"/>
+                    <resource id="Tigren_Bannermanager::setting" title="Setting" sortOrder="30"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

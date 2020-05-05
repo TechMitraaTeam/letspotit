@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © 2017 Tigren. All rights reserved.
+ */
+?>
+<div class="switcher links switcher-myaccount-links" id="switcher-myaccount-links">
+    <strong class="label switcher-label"><span><?php /* @escapeNotVerified */ echo __('My Account') ?></span></strong>
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle" id="switcher-links-trigger">
+            <strong><span><?php /* @escapeNotVerified */
+                echo __('My Account') ?></span></strong>
+        </div>
+        <ul class="dropdown switcher-dropdown " data-mage-init='{"dropdownDialog":{
+            "appendTo":"#switcher-myaccount-links > .options",
+            "triggerTarget":"#switcher-links-trigger",
+            "closeOnMouseLeave": false,
+            "triggerClass":"active",
+            "parentClass":"active",
+            "buttons":null}}'>
+            <?php echo $block->getChildHtml('header.myaccount.links'); ?>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="popup_cms_static_block" class="Tigren\Popup\Block\Widget\CmsBlock"
+            placeholder_image="Tigren_Popup::images/widget_block.png">
+        <label translate="true">Tigren Popup - CMS Static Block</label>
+        <description translate="true">Tigren Popup - CMS Static Block</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="0">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="Tigren_Popup::widget/cms_static_block.phtml" selected="true">
+                        <label translate="true">Popup CMS Static Block Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="unique_id" xsi:type="text" visible="false" required="true" sort_order="10">
+                <label translate="true">Popup ID</label>
+            </parameter>
+            <parameter name="cookie_expires" xsi:type="text" visible="true" required="true" sort_order="15">
+                <label translate="true">Cookie Expires</label>
+                <description translate="true">Second (s)</description>
+                <value>86400</value>
+            </parameter>
+            <parameter name="block_id" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Block</label>
+                <block class="Magento\Cms\Block\Adminhtml\Block\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Block...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="popup_title" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="popup_effect" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\Effect" sort_order="25">
+                <label translate="true">Popup Effect</label>
+            </parameter>
+            <parameter name="view_session" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\ViewSession" sort_order="27">
+                <label translate="true">Show When</label>
+            </parameter>
+            <parameter name="view_seconds" xsi:type="text" visible="true" required="true" sort_order="28">
+                <label translate="true">Show After</label>
+                <description translate="true">Show popup after x second(s)</description>
+                <depends>
+                    <parameter name="view_session" value="after_x_seconds"/>
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="auto_close" xsi:type="text" visible="true" sort_order="29">
+                <label translate="true">Close Popup After</label>
+                <description translate="true">Close popup window after x second(s). Leave 0 or empty for unlimited.
+                </description>
+                <value>0</value>
+            </parameter>
+            <parameter name="popup_width" xsi:type="text" required="true" visible="true" sort_order="30">
+                <label translate="true">Width</label>
+                <description translate="true">Pixel (px)</description>
+                <value>auto</value>
+            </parameter>
+            <parameter name="border_radius" xsi:type="text" visible="true" sort_order="40">
+                <label translate="true">Border Radius</label>
+                <description translate="true">Percent (%)</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="customer_groups" xsi:type="multiselect" visible="true" required="true"
+                       source_model="Tigren\Popup\Model\Config\Source\CustomerGroup" sort_order="50">
+                <label translate="true">Customer Groups</label>
+            </parameter>
+            <parameter name="is_active" xsi:type="select" visible="true" required="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="60">
+                <label translate="true">Is Active</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="popup_custom_default" class="Tigren\Popup\Block\Widget\Custom\Custom"
+            placeholder_image="Tigren_Popup::images/widget_block.png">
+        <label translate="true">Tigren Popup - Custom Popup</label>
+        <description>Tigren Popup - Custom Popup</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="0">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/custom/default.phtml" selected="true">
+                        <label translate="true">Custom Popup Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="unique_id" xsi:type="text" visible="false" required="true" sort_order="10">
+                <label translate="true">Popup ID</label>
+            </parameter>
+            <parameter name="cookie_expires" xsi:type="text" visible="true" required="true" sort_order="15">
+                <label translate="true">Cookie Expires</label>
+                <description translate="true">Second (s)</description>
+                <value>86400</value>
+            </parameter>
+            <parameter name="popup_content" xsi:type="block" visible="true" required="true" sort_order="20">
+                <label translate="true">Custom Content</label>
+                <block class="Tigren\Popup\Block\Adminhtml\Widget\Editor"/>
+            </parameter>
+            <parameter name="popup_effect" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\Effect" sort_order="25">
+                <label translate="true">Popup Effect</label>
+            </parameter>
+            <parameter name="view_session" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\ViewSession" sort_order="27">
+                <label translate="true">Show When</label>
+            </parameter>
+            <parameter name="view_seconds" xsi:type="text" visible="true" required="true" sort_order="28">
+                <label translate="true">Show After</label>
+                <description translate="true">Show popup after x second(s)</description>
+                <depends>
+                    <parameter name="view_session" value="after_x_seconds"/>
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="auto_close" xsi:type="text" visible="true" sort_order="29">
+                <label translate="true">Close Popup After</label>
+                <description translate="true">Close popup window after x second(s). Leave 0 or empty for unlimited.
+                </description>
+                <value>0</value>
+            </parameter>
+            <parameter name="popup_width" xsi:type="text" required="true" visible="true" sort_order="30">
+                <label translate="true">Width</label>
+                <description translate="true">Pixel (px)</description>
+                <value>auto</value>
+            </parameter>
+            <parameter name="border_radius" xsi:type="text" visible="true" sort_order="40">
+                <label translate="true">Border Radius</label>
+                <description translate="true">Percent (%)</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="customer_groups" xsi:type="multiselect" visible="true" required="true"
+                       source_model="Tigren\Popup\Model\Config\Source\CustomerGroup" sort_order="50">
+                <label translate="true">Customer Groups</label>
+            </parameter>
+            <parameter name="is_active" xsi:type="select" visible="true" required="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="60">
+                <label translate="true">Is Active</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="popup_custom_newsletter" class="Tigren\Popup\Block\Widget\Custom\Newsletter"
+            placeholder_image="Tigren_Popup::images/widget_block.png">
+        <label translate="true">Tigren Popup - Newsletter</label>
+        <description>Tigren Popup - Newsletter</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="0">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/custom/newsletter.phtml" selected="true">
+                        <label translate="true">Newsletter Popup Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="unique_id" xsi:type="text" visible="false" required="true" sort_order="10">
+                <label translate="true">Popup ID</label>
+            </parameter>
+            <parameter name="cookie_expires" xsi:type="text" visible="true" required="true" sort_order="15">
+                <label translate="true">Cookie Expires</label>
+                <description translate="true">Second (s)</description>
+                <value>86400</value>
+            </parameter>
+            <parameter name="popup_title" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Title</label>
+                <value>Subscribe to Newsletter</value>
+            </parameter>
+            <parameter name="newsletter_description" xsi:type="text" visible="true" sort_order="30">
+                <label translate="true">Newsletter Description</label>
+                <value>Subscribe now and we send you the best offer!</value>
+            </parameter>
+            <parameter name="popup_effect" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\Effect" sort_order="25">
+                <label translate="true">Popup Effect</label>
+            </parameter>
+            <parameter name="view_session" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\ViewSession" sort_order="27">
+                <label translate="true">Show When</label>
+            </parameter>
+            <parameter name="view_seconds" xsi:type="text" visible="true" required="true" sort_order="28">
+                <label translate="true">Show After</label>
+                <description translate="true">Show popup after x second(s)</description>
+                <depends>
+                    <parameter name="view_session" value="after_x_seconds"/>
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="auto_close" xsi:type="text" visible="true" sort_order="29">
+                <label translate="true">Close Popup After</label>
+                <description translate="true">Close popup window after x second(s). Leave 0 or empty for unlimited.</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="popup_width" xsi:type="text" required="true" visible="true" sort_order="40">
+                <label translate="true">Width</label>
+                <description translate="true">Pixel (px)</description>
+                <value>auto</value>
+            </parameter>
+            <parameter name="border_radius" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Border Radius</label>
+                <description translate="true">Percent (%)</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="customer_groups" xsi:type="multiselect" visible="true" required="true"
+                       source_model="Tigren\Popup\Model\Config\Source\CustomerGroup" sort_order="60">
+                <label translate="true">Customer Groups</label>
+            </parameter>
+            <parameter name="is_active" xsi:type="select" visible="true" required="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="70">
+                <label translate="true">Is Active</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="popup_custom_contact_form" class="Tigren\Popup\Block\Widget\Custom\ContactForm"
+            placeholder_image="Tigren_Popup::images/widget_block.png">
+        <label translate="true">Tigren Popup - Contact Form</label>
+        <description>Tigren Popup - Contact Form</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="0">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/custom/contact_form.phtml" selected="true">
+                        <label translate="true">Contact Form Popup Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="unique_id" xsi:type="text" visible="false" required="true" sort_order="10">
+                <label translate="true">Popup ID</label>
+            </parameter>
+            <parameter name="cookie_expires" xsi:type="text" visible="true" required="true" sort_order="15">
+                <label translate="true">Cookie Expires</label>
+                <description translate="true">Second (s)</description>
+                <value>86400</value>
+            </parameter>
+            <parameter name="popup_title" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Title</label>
+                <value>Contact Us</value>
+            </parameter>
+            <parameter name="contact_description" xsi:type="text" visible="true" sort_order="30">
+                <label translate="true">Contact Us Description</label>
+                <value>Jot us a note and we’ll get back to you as quickly as possible.</value>
+            </parameter>
+            <parameter name="popup_effect" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\Effect" sort_order="25">
+                <label translate="true">Popup Effect</label>
+            </parameter>
+            <parameter name="view_session" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\ViewSession" sort_order="27">
+                <label translate="true">Show When</label>
+            </parameter>
+            <parameter name="view_seconds" xsi:type="text" visible="true" required="true" sort_order="28">
+                <label translate="true">Show After</label>
+                <description translate="true">Show popup after x second(s)</description>
+                <depends>
+                    <parameter name="view_session" value="after_x_seconds"/>
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="auto_close" xsi:type="text" visible="true" sort_order="29">
+                <label translate="true">Close Popup After</label>
+                <description translate="true">Close popup window after x second(s). Leave 0 or empty for unlimited.</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="popup_width" xsi:type="text" required="true" visible="true" sort_order="40">
+                <label translate="true">Width</label>
+                <description translate="true">Pixel (px)</description>
+                <value>auto</value>
+            </parameter>
+            <parameter name="border_radius" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Border Radius</label>
+                <description translate="true">Percent (%)</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="customer_groups" xsi:type="multiselect" visible="true" required="true"
+                       source_model="Tigren\Popup\Model\Config\Source\CustomerGroup" sort_order="60">
+                <label translate="true">Customer Groups</label>
+            </parameter>
+            <parameter name="is_active" xsi:type="select" visible="true" required="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="70">
+                <label translate="true">Is Active</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="popup_custom_login" class="Tigren\Popup\Block\Widget\Custom\Login"
+            placeholder_image="Tigren_Popup::images/widget_block.png">
+        <label translate="true">Tigren Popup - Login Form</label>
+        <description>Tigren Popup - Login Form</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="0">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/custom/login.phtml" selected="true">
+                        <label translate="true">Login Form Popup Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="unique_id" xsi:type="text" visible="false" required="true" sort_order="10">
+                <label translate="true">Popup ID</label>
+            </parameter>
+            <parameter name="cookie_expires" xsi:type="text" visible="true" required="true" sort_order="15">
+                <label translate="true">Cookie Expires</label>
+                <description translate="true">Second (s)</description>
+                <value>86400</value>
+            </parameter>
+            <parameter name="popup_title" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Title</label>
+                <value>Customer Login</value>
+            </parameter>
+            <parameter name="login_description" xsi:type="text" visible="true" sort_order="30">
+                <label translate="true">Login Description</label>
+                <value>If you have an account, sign in with your email address.</value>
+            </parameter>
+            <parameter name="popup_effect" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\Effect" sort_order="25">
+                <label translate="true">Popup Effect</label>
+            </parameter>
+            <parameter name="popup_width" xsi:type="text" required="true" visible="true" sort_order="40">
+                <label translate="true">Width</label>
+                <description translate="true">Pixel (px)</description>
+                <value>auto</value>
+            </parameter>
+            <parameter name="view_session" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\ViewSession" sort_order="27">
+                <label translate="true">Show When</label>
+            </parameter>
+            <parameter name="view_seconds" xsi:type="text" visible="true" required="true" sort_order="28">
+                <label translate="true">Show After</label>
+                <description translate="true">Show popup after x second(s)</description>
+                <depends>
+                    <parameter name="view_session" value="after_x_seconds"/>
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="auto_close" xsi:type="text" visible="true" sort_order="29">
+                <label translate="true">Close Popup After</label>
+                <description translate="true">Close popup window after x second(s). Leave 0 or empty for unlimited.</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="border_radius" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Border Radius</label>
+                <description translate="true">Percent (%)</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="customer_groups" xsi:type="multiselect" visible="true" required="true"
+                       source_model="Tigren\Popup\Model\Config\Source\CustomerGroup" sort_order="60">
+                <label translate="true">Customer Groups</label>
+            </parameter>
+            <parameter name="is_active" xsi:type="select" visible="true" required="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="70">
+                <label translate="true">Is Active</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="popup_custom_cookie_compliance" class="Tigren\Popup\Block\Widget\Custom\CookieCompliance"
+            placeholder_image="Tigren_Popup::images/widget_block.png">
+        <label translate="true">Tigren Popup - Cookie Compliance</label>
+        <description>Tigren Popup - Cookie Compliance</description>
+        <parameters>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="0">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/custom/cookie_compliance.phtml" selected="true">
+                        <label translate="true">Cookie Compliance Popup Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="unique_id" xsi:type="text" visible="false" required="true" sort_order="10">
+                <label translate="true">Popup ID</label>
+            </parameter>
+            <parameter name="cookie_expires" xsi:type="text" visible="true" required="true" sort_order="15">
+                <label translate="true">Cookie Expires</label>
+                <description translate="true">Second (s)</description>
+                <value>86400</value>
+            </parameter>
+            <parameter name="popup_title" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="cookie_compliance_description" xsi:type="text" visible="true" sort_order="22">
+                <label translate="true">Cookie Compliance Description</label>
+            </parameter>
+            <parameter name="popup_effect" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\Effect" sort_order="25">
+                <label translate="true">Popup Effect</label>
+            </parameter>
+            <parameter name="view_session" xsi:type="select" visible="true"
+                       source_model="Tigren\Popup\Model\Config\Source\ViewSession" sort_order="27">
+                <label translate="true">Show When</label>
+            </parameter>
+            <parameter name="view_seconds" xsi:type="text" visible="true" required="true" sort_order="28">
+                <label translate="true">Show After</label>
+                <description translate="true">Show popup after x second(s)</description>
+                <depends>
+                    <parameter name="view_session" value="after_x_seconds"/>
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="auto_close" xsi:type="text" visible="true" sort_order="29">
+                <label translate="true">Close Popup After</label>
+                <description translate="true">Close popup window after x second(s). Leave 0 or empty for unlimited.</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="popup_width" xsi:type="text" required="true" visible="true" sort_order="40">
+                <label translate="true">Width</label>
+                <description translate="true">Pixel (px)</description>
+                <value>auto</value>
+            </parameter>
+            <parameter name="border_radius" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Border Radius</label>
+                <description translate="true">Percent (%)</description>
+                <value>0</value>
+            </parameter>
+            <parameter name="customer_groups" xsi:type="multiselect" visible="true" required="true"
+                       source_model="Tigren\Popup\Model\Config\Source\CustomerGroup" sort_order="60">
+                <label translate="true">Customer Groups</label>
+            </parameter>
+            <parameter name="is_active" xsi:type="select" visible="true" required="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="70">
+                <label translate="true">Is Active</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

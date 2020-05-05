@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Tigren_Bannermanager::css/bannermanager.css"/>
+    </head>
+    <body>
+        <referenceContainer name="div.sidebar.main">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.sidebar.main.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">sidebar-main-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.sidebar.main.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">sidebar-main-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.additional">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.sidebar.additional.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">sidebar-additional-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.sidebar.additional.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">sidebar-additional-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.page.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">page-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.content.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">content-top</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="page.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.menu.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">menu-top</argument>
+                </action>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="page.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.menu.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">menu-bottom</argument>
+                </action>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+	<widget class="Neeta\HomeSlider\Block\DisplaySlider" id="display_slider_widget">
+		<label>Blog Posts</label>
+		<description>Posts</description>
+		<parameters>
+			<parameter name="slider-home" sort_order="10" visible="true" xsi:type="text">
+				<label>Custom Home Slider</label>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>

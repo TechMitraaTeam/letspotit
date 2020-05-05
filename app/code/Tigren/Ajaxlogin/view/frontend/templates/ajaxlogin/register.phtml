@@ -1,0 +1,104 @@
+<?php
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ * @var $block \Tigren\Ajaxlogin\Block\Form\Register
+ */
+?>
+<div class="mb-register-popup" style="display:none;">
+    <div class="mb-login-popup-title">
+        <span class="mb-login-popup-title-logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <strong><?php echo __('Customer Register'); ?></strong>
+    </div>
+    <div class="mb-ajaxsuite-popup-border mb-ajaxlogin-popup mb-ajaxlogin-register">
+        <form class="form form-create-account mb-login-form-register"
+              method="post"
+              id="register-form"
+              enctype="multipart/form-data" autocomplete="off">
+            <fieldset class="fieldset create info">
+                <legend class="legend"><span>Personal Information</span></legend>
+                <br>
+                <input type="hidden" name="success_url" value="">
+                <input type="hidden" name="error_url" value="">
+                <div class="field field-name-firstname required">
+                    <label class="label" for="firstname">
+                        <span>First Name</span>
+                    </label>
+                    <div class="control">
+                        <input type="text" id="firstname" name="firstname" value="" title="First Name"
+                               class="input-text required-entry" data-validate="{required:true}" autocomplete="off"
+                               aria-required="true">
+                    </div>
+                </div>
+                <div class="field field-name-lastname required">
+                    <label class="label" for="lastname">
+                        <span>Last Name</span>
+                    </label>
+
+                    <div class="control">
+                        <input type="text" id="lastname" name="lastname" value="" title="Last Name"
+                               class="input-text required-entry" data-validate="{required:true}" autocomplete="off"
+                               aria-required="true">
+                    </div>
+                </div>
+
+                <div class="field choice newsletter">
+                    <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1"
+                           id="is_subscribed" class="checkbox">
+                    <label for="is_subscribed" class="label"><span>Sign Up for Newsletter</span></label>
+                </div>
+
+            </fieldset>
+            <fieldset class="fieldset create account" data-hasrequired="* Required Fields">
+                <legend class="legend"><span>Sign-in Information</span></legend>
+                <br>
+                <div class="field required">
+                    <label for="email_address" class="label"><span>Email</span></label>
+                    <div class="control">
+                        <input type="email" name="email" autocomplete="email" id="email_address" value="" title="Email"
+                               class="input-text" data-validate="{required:true, 'validate-email':true}"
+                               aria-required="true">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label for="password" class="label"><span>Password</span></label>
+                    <div class="control">
+                        <input type="password" name="password" id="password" title="Password" class="input-text"
+                               data-password-min-length="8" data-password-min-character-sets="3"
+                               data-validate="{required:true, 'validate-customer-password':true}" autocomplete="off"
+                               aria-required="true">
+                    </div>
+
+                </div>
+                <div class="field confirmation required">
+                    <label for="password-confirmation" class="label"><span>Confirm Password</span></label>
+                    <div class="control">
+                        <input type="password" name="password_confirmation" title="Confirm Password"
+                               id="password-confirmation" class="input-text"
+                               data-validate="{required:true, equalTo:'#password'}" autocomplete="off"
+                               aria-required="true">
+                    </div>
+                </div>
+            </fieldset>
+            <div class="clr"></div>
+            <div class="actions mb-style-actions">
+                <div class="primary">
+                    <button type="submit" class="action submit primary"
+                            title="Create Account"><span>Create an Account</span></button>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="secondary">
+                    <a class="action forgot" href="<?php echo $block->getUrl('customer/account/forgotpassword'); ?>">
+                        <span><?php echo __('Forgot Your Password?') ?></span>
+                    </a>
+                </div>
+                <span> | </span>
+                <div class="secondary">
+                    <a class="action back" href="<?php echo $block->getUrl('customer/account/login'); ?>">
+                        <span class="mb-back-link"><?php echo __('Login') ?></span>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

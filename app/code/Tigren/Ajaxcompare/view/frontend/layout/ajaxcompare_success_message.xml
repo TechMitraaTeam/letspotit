@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Magento\Catalog\Block\Product\View" as="ajaxcompare_success_message"
+               template="Tigren_Ajaxcompare::success_message.phtml">
+            <block class="Tigren\Ajaxcompare\Block\Message" name="ajaxcompare.message" template="message.phtml"/>
+            <block class="Magento\Catalog\Block\Product\Gallery" as="product_image" template="product/image.phtml"/>
+        </block>
+    </container>
+</layout>

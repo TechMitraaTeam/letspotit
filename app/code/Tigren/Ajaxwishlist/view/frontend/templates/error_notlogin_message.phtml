@@ -1,0 +1,22 @@
+<?php
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+?>
+<?php $_product = $block->getProduct(); ?>
+<div class="mb-login-popup-title center">
+    <strong><?php echo __('Error'); ?></strong>
+</div>
+<div class="mb-ajaxsuite-popup-border ajaxwishlist-error-box">
+    <p class="mb-message-error"><?php echo __('Please log in before adding product to your wishlist.'); ?></p>
+    <div class="ajaxwishlist-buttons">
+        <button type="button" id="ajaxwishlist_btn_close_popup" class="action primary mb-ajaxsuite-close"
+                title="<?php echo __('Close') ?>">
+            <span><?php echo __('Close ') ?></span>
+        </button>
+        <button type="button" id="ajaxwishlist_btn_to_login" class="action focus primary"
+                title="<?php echo __('View Login') ?>">
+            <span><?php echo __('Login') ?></span>
+        </button>
+    </div>
+</div>

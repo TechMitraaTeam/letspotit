@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Tigren_Ajaxlogin::css/ajaxlogin.css"/>
+    </head>
+    <body>
+    	<referenceBlock name="head.components">
+            <block class="Tigren\Ajaxlogin\Block\Js" name="ajaxLoginJs" as="ajaxLoginJs"  ifconfig="ajaxlogin/general/enabled" />
+        </referenceBlock>
+        <referenceBlock name="ajaxsuite.popup.popup">
+            <block class="Tigren\Ajaxlogin\Block\Popup\Wrapper" name="ajaxlogin.popup.wrapper"
+                   template="popup/wrapper.phtml" ifconfig="ajaxlogin/general/enabled" >
+                <block class="Tigren\Ajaxlogin\Block\Popup\Login" name="ajaxlogin.popup.login" template="popup/login.phtml" />
+                <block class="Tigren\Ajaxlogin\Block\Popup\Register" name="ajaxlogin.popup.register" template="popup/register.phtml" />
+                <block class="Tigren\Ajaxlogin\Block\Popup\Forgot" name="ajaxlogin.popup.forgot" template="popup/forgot.phtml" />
+                <block class="Tigren\Ajaxlogin\Block\Popup\Message" name="ajaxlogin.popup.message" template="popup/message.phtml" />
+            </block>
+        </referenceBlock>
+    </body>
+</page>

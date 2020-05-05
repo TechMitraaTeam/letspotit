@@ -1,0 +1,62 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+
+$position = $block->getScopeConfig('socialshare/position/position');
+if ($position == 'sunkmenu') {
+    $enableFacebook = $block->getScopeConfig('socialshare/facebook/enable_facebook');
+    $enableTwitter = $block->getScopeConfig('socialshare/twitter/enable_twitter');
+    $enableGooglePlus = $block->getScopeConfig('socialshare/googleplus/enable_google_plus');
+    $enablePinit = $block->getScopeConfig('socialshare/pinitsharing/enable_pinit');
+    ?>
+    <div id="tigren-social" class="pos-<?php echo $position; ?>">
+        <div class="label">
+            <img src="<?php echo $block->getViewFileUrl('Tigren_Socialshare::images/social-share-icon.png'); ?>" />
+        </div>
+        <div class="share-button-list">
+            <?php
+            if ($enableFacebook == 1):
+                echo $block->getFacebookButton();
+            endif;
+
+            if ($enableTwitter == 1):
+                echo $block->getTwitterButton();
+            endif;
+
+            if ($enableGooglePlus == 1):
+                echo $block->getGooglePlusButton();
+            endif;
+
+            if ($enablePinit == 1):
+                echo $block->getPinItButton();
+            endif;
+            ?>
+        </div>
+    </div>
+    <script>
+        require(['jquery'], function ($) {
+            $(document).ready(function () {
+                menuTop = $('#tigren-social').position().top;
+                $('#tigren-social').hover(
+                    function(){ 
+                        $('#tigren-social').css({width:'auto', height: 'auto'});
+                        $('#tigren-social').children('.label').hide();
+                        $('#tigren-social').children('.share-button-list').fadeIn();
+                    },
+                    function(){
+                        $('#tigren-social').css({width:'50px', height:'30px'});
+                        $("#tigren-social").children('.label').show();
+                        $("#tigren-social").children('.share-button-list').fadeOut();
+                    }
+                );
+
+                $(window).scroll(function () {
+                    var scrollTop = $(window).scrollTop();
+                    var newPosition = menuTop + scrollTop;
+                    $('#tigren-social').css('top', newPosition);
+                });
+            });
+        });
+    </script>
+<?php } ?>

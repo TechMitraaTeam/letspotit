@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="row">
+    <div class="col-md-3 col-xs-4">
+        <div class="category-nav">
+            <div class="box-title hidden-xs"><span><?php /* @escapeNotVerified */ echo __('Categories') ?></span></div>
+            <?php echo $block->getChildHtml('header.navigation.sections'); ?>
+        </div>
+    </div>
+    <div class="col-md-9 col-xs-8">
+        <?php echo $block->getChildHtml('horizontal.menu'); ?>
+    </div>
+</div>

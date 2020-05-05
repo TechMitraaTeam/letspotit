@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @copyright Copyright (c) 2016 www.tigren.com
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="tigren" translate="label" sortOrder="1">
+            <label>Tigren</label>
+        </tab>
+        <section id="socialshare" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Social Share</label>
+            <tab>tigren</tab>
+            <resource>Tigren_Socialshare::system_config</resource>
+            <group id="share_pages" translate="label" type="text" sortOrder="1" showInDefault="1" showInStore="1"
+                   showInWebsite="1">
+                <label>Sharing Pages</label>
+                <field id="product_details_page" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Display Sharing Buttons in Product Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="category_details_page" translate="label" type="select" sortOrder="2" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Display Sharing Buttons in Category Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cms_pages" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Display Sharing Buttons in CMS Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            
+            <group id="position" translate="label" type="text" sortOrder="2" showInDefault="1" showInStore="1"
+                   showInWebsite="1">
+                <label>Position</label>
+                <field id="position" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Choose Position to Display Sharing Buttons</label>
+                    <source_model>Tigren\Socialshare\Model\Config\Source\Positions</source_model>
+                </field>
+            </group>
+            
+            <group id="facebook" translate="label" type="text" sortOrder="3" showInDefault="1" showInStore="1"
+                   showInWebsite="1">
+                <label>Facebook Sharing Options</label>
+                <field id="enable_facebook" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Enable Facebook Sharing Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="fb_id" translate="label" type="text" sortOrder="2" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Facebook ID</label>
+                    <comment>Leave it blank if you don't have any Facebook ID</comment>
+                </field>
+                <field id="display_onlylike" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Display Only Like</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_facebook_count" translate="label" type="select" sortOrder="4" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Display Count</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="googleplus" translate="label" type="text" sortOrder="4" showInDefault="1" showInStore="1"
+                   showInWebsite="1">
+                <label>Google Sharing Options</label>
+                <field id="enable_google_plus" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Enable Google +1 Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_google_count" translate="label" type="select" sortOrder="2" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Display Count</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="twitter" translate="label" type="text" sortOrder="5" showInDefault="1" showInStore="1"
+                   showInWebsite="1">
+                <label>Twitter Sharing Options</label>
+                <field id="enable_twitter" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Enable Twitter Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="pinitsharing" translate="label" type="text" sortOrder="6" showInDefault="1" showInStore="1"
+                   showInWebsite="1">
+                <label>Pin It Sharing Options</label>
+                <field id="enable_pinit" translate="label" type="select" sortOrder="1" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Enable Pin It Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_pinit_count" translate="label" type="select" sortOrder="2" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Display Count</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

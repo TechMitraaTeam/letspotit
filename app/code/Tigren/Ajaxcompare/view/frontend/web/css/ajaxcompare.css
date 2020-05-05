@@ -1,0 +1,24 @@
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+
+#mb-ajaxcompare-wrapper {
+    width: 500px;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box {
+    text-align: center;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box .product-name {
+    font-weight: bold;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box img.image {
+    max-width: 100%;
+    width: 30%;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-buttons{
+    margin: 10px 0;
+}

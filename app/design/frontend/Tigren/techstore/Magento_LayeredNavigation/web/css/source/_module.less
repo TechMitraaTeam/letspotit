@@ -1,0 +1,191 @@
+// /**
+//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .block.filter {
+        .filter-title {
+            margin-bottom: @indent__base;
+
+            strong {
+                font-size: 18px;
+            }
+        }
+        .block-content.filter-content {
+            padding: 0;
+            border: none;
+        }
+    }
+
+    .block-subtitle {
+        display: inline-block;
+        margin-bottom: @indent__s;
+    }
+
+    .filter {
+        .items {
+            &:extend(.abs-reset-list all);
+            .item {
+                margin-bottom: @indent__xs;
+                .filter-label {
+                    font-weight: @font-weight__bold;
+                }
+            }
+        }
+        &-current {
+            .action.remove {
+                &:extend(.abs-remove-button-for-blocks all);
+            }
+        }
+        &-actions {
+            margin-bottom: @indent__s;
+        }
+    }
+
+    .filter .filter-current {
+        &-subtitle {
+            position: relative;
+            text-transform: uppercase;
+            z-index: 1;
+
+            .lib-icon-font(
+            @_icon-font-content: @icon-down,
+            @_icon-font-size: 13px,
+            @_icon-font-position: before,
+            @_icon-font-display: block
+            );
+
+            &:before {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+
+            &:after {
+                .lib-css(color, @text__color__muted);
+                content: ' (' attr(data-count) ')';
+                font-size: .9em;
+            }
+        }
+
+        &.active {
+            padding-bottom: 30px;
+
+            .block-subtitle {
+                .lib-icon-font-symbol(
+                @_icon-font-content: @icon-up,
+                @_icon-font-position: before
+                );
+            }
+
+            .items {
+                display: block;
+            }
+
+            & + .block-actions {
+                display: block;
+            }
+        }
+
+        & + .block-actions {
+            display: none;
+        }
+    }
+
+    .filter-options-content {
+        .filter-count-label {
+            &:extend(.abs-visually-hidden all);
+        }
+    }
+
+    .filter-options {
+        margin: 0;
+
+        .filter-options-title {
+            background: @color-light-grayde;
+            padding: @indent__s @indent__base;
+            font-family: @font-family__base;
+            font-size: 14px;
+            font-weight: 400;
+            color: @color-dark-46;
+            margin: 0;
+        }
+
+        .filter-options-content {
+            margin: 0 0 @indent__m;
+            padding: @indent__base;
+            border: 1px solid @color-light-grayde;
+            .item {
+                margin-bottom: 5px;
+                a {
+                    font-family: @font-family__base;
+                    font-size: 14px;
+                    font-weight: 300;
+                    color: @color-dark-46;
+                    &:hover {
+                        color: @theme_main_color;
+                    }
+                }
+            }
+        }
+
+        .count {
+            .lib-css(color, @text__color__muted);
+
+            &:before {
+                content: '(';
+            }
+
+            &:after {
+                content: ')';
+            }
+        }
+    }
+
+    .filtered {
+        .items {
+            margin: 15px 0;
+        }
+
+        .item {
+            margin-bottom: 6px;
+            padding-left: 22px;
+            position: relative;
+
+            .label {
+                font-weight: @font-weight__bold;
+            }
+
+            .action.remove {
+                &:extend(.abs-remove-button-for-blocks all);
+                left: -6px;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        & + .actions {
+            margin-bottom: 35px;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-with-filter {
+        .columns {
+            .sidebar-main {
+                .lib-vendor-prefix-order(0);
+            }
+        }
+    }
+}

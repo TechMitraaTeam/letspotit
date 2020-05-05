@@ -1,0 +1,97 @@
+//
+//  COMMON STYLES
+//  ---------------------------------------------
+
+//
+//  Abstract block title
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+  .abs-block-title {
+    > strong {
+      font-family: @font-family__base;
+      font-size: 14px;
+      font-weight: 400;
+      color: @color-dark-46;
+    }
+
+    margin-bottom: 15px;
+  }
+}
+.price-box {
+  .price-container {
+    .price-label {
+      display: none;
+    }
+    .price-wrapper {
+      .price {
+        font-family: @font-family__base;
+        font-size: @indent__base;
+        text-align: center;
+        font-weight: 700;
+        color: @color-dark-46;
+      }
+    }
+  }
+  .special-price {
+    display: inline-block;
+    padding-right: @indent__base;
+    .price-container {
+      .price-wrapper {
+        .price {
+          font-weight: 700;
+          color: @theme_main_color;
+        }
+      }
+    }
+  }
+  .old-price {
+    display: inline-block;
+    padding-right: @indent__base;
+    text-decoration: none;
+    .price-container {
+      .price-wrapper {
+        .price {
+          font-family: @font-family__base;
+          font-size: @indent__base;
+          text-align: center;
+          font-weight: 300;
+          color: @color-light-grayde;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
+
+.sidebar {
+  .block {
+    margin-bottom: @indent__l;
+    >  .block-title {
+      background: @color-light-grayde;
+      padding: @indent__s @indent__base;
+      margin: 0;
+      > strong {
+        font-family: @font-family__base;
+        font-size: 14px;
+        font-weight: 400;
+        color: @color-dark-46;
+      }
+    }
+    > .block-content {
+      padding: @indent__base;
+      border: 1px solid @color-light-grayde;
+    }
+  }
+}
+.contact-index-index {
+  .column:not(.sidebar-main),
+  .column:not(.sidebar-additional) {
+    .form {
+      &.contact {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}

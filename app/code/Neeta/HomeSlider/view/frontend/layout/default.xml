@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Neeta_HomeSlider::css/style.css" rel="stylesheet" type="text/css" />
+        <css src="Neeta_HomeSlider::css/vendor/icofont/icofont.min.css" rel="stylesheet" type="text/css" />
+        <css src="Neeta_HomeSlider::css/vendor/boxicons/css/boxicons.css" rel="stylesheet" type="text/css" />
+        <css src="Neeta_HomeSlider::css/vendor/venobox/venobox.css" rel="stylesheet" type="text/css" />
+
+        <css src="Neeta_HomeSlider::css/vendor/owl.carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
+        <css src="Neeta_HomeSlider::css/vendor/aos/aos.css" rel="stylesheet" type="text/css" />
+
+
+        <!-- JS  -->
+        <link src="Neeta_HomeSlider::js/main.js" />
+        <link src="Neeta_HomeSlider::js/jquery-sticky/jquery.sticky.js" />
+<!--         <link src="Neeta_HomeSlider::js/owl.carousel/owlcarousel.js" />
+ -->        <link src="Neeta_HomeSlider::js/aos/aos.js" />
+    </head>
+</page>

@@ -1,0 +1,46 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+?>
+<?php
+$popupHtmlId = $block->getPopupHtmlId();
+$popupTitle = $block->getData('popup_title');
+?>
+
+<div id=<?php echo $popupHtmlId ?> class="mb-popup-container mb-no-view">
+<div class="mb-popup-border">
+    <div class="widget block block-static-block">
+        <?php /* @escapeNotVerified */
+        echo $block->getText(); ?>
+    </div>
+</div>
+</div>
+
+<script>
+require([
+    'jquery',
+    'mage/mage',
+    'tigren/popup'
+], function ($) {
+    "use strict";
+    $(document).ready(function($) {
+        $('body').mbPopup({
+            enabled_statistics: <?php echo $block->isEnabledStatistics() ?>,
+            impression_url: '<?php echo $block->getImpressionActionUrl() ?>',
+            instance_id: '<?php echo $block->getInstanceId() ?>',
+            popup_class: 'mb-popup-cms-block',
+            content : $('#<?php echo $popupHtmlId ?>').html(),
+            popup_id: '<?php echo $popupHtmlId ?>',
+            cookie_expires : '<?php echo $block->getData('cookie_expires') ?>',
+            border_radius: '<?php echo $block->getData('border_radius') ?>' + '%',
+            popup_width: '<?php echo $block->getData('popup_width') == 'auto' ? $block->getData('popup_width') : $block->getData('popup_width') . 'px' ?>',
+            animate: '<?php echo $block->getData('popup_effect') ?>',
+            view_session: '<?php echo $block->getData('view_session') ?>',
+            view_seconds: '<?php echo $block->getData('view_seconds') ?>',
+            auto_close: '<?php echo $block->getData('auto_close') ?>'
+        });
+    });
+});
+
+</script>

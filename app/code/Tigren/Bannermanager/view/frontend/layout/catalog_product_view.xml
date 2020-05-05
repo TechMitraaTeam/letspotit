@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="div.sidebar.main">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.sidebar.main.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-sidebar-main-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.category.sidebar.main.top"
+                   before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-sidebar-main-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.sidebar.main.bottom"
+                   after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-sidebar-main-bottom</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.product.sidebar.main.bottom"
+                   after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-sidebar-main-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="div.sidebar.additional">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.sidebar.additional.top"
+                   before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-sidebar-additional-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.product.sidebar.additional.top"
+                   before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-sidebar-additional-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.sidebar.additional.bottom"
+                   after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-sidebar-additional-bottom</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.product.sidebar.additional.bottom"
+                   after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-sidebar-additional-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.page.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-page-bottom</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.product.page.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-page-bottom</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.content.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-content-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.product.content.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-content-top</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="page.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.menu.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-menu-top</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.product.menu.top" before="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-menu-top</argument>
+                </action>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="page.top">
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.catalog.menu.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">catalog-menu-bottom</argument>
+                </action>
+            </block>
+            <block class="Tigren\Bannermanager\Block\Banner" name="bannermanager.product.menu.bottom" after="-">
+                <action method="setPosition">
+                    <argument name="position" xsi:type="string">product-menu-bottom</argument>
+                </action>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

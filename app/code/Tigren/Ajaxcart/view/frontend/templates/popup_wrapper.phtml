@@ -1,0 +1,27 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+?>
+<?php
+$required = '';
+if ($block->hasRequiredOptions()) {
+    $required = ' data-hasrequired="' . __('* Required Fields') . '"';
+}
+$_product = $block->getProduct();
+?>
+<div class="product-options-wrapper" id="product-options-wrapper"<?php /* @escapeNotVerified */
+echo $required; ?>>
+    <div class="product-name"><?php echo $_product->getName() ?></div>
+    <div class="fieldset" tabindex="0">
+        <?php echo $block->getChildHtml('product_price'); ?>
+        <?php echo $block->getChildHtml('product_options'); ?>
+        <?php if ($_product->getTypeId() == 'configurable'): ?>
+            <?php echo $block->getChildHtml('type_options_configurable'); ?>
+        <?php elseif ($_product->getTypeId() == 'bundle') : ?>
+            <?php echo $block->getChildHtml('type_options_bundle'); ?>
+        <?php endif; ?>
+        <?php echo $block->getChildHtml('html_calendar'); ?>
+        <?php echo $block->getChildHtml('product_options_wrapper_bottom'); ?>
+    </div>
+</div>

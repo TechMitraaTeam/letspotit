@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+	<container name="root">
+		<block class="Tigren\Ajaxlogin\Block\Form\Login" as="ajaxlogin_login_popup" template="Tigren_Ajaxlogin::ajaxlogin/login.phtml">
+			<container name="form.additional.info" as="form_additional_info"/>
+		</block>
+    </container>
+</layout>

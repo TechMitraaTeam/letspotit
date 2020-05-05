@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Tigren_Ajaxwishlist::css/ajaxwishlist.css"/>
+    </head>
+    <body>
+        <referenceBlock name="head.components">
+            <block class="Tigren\Ajaxwishlist\Block\Js" name="ajaxWishlistJs" as="ajaxWishlistJs" ifconfig="ajaxwishlist/general/enabled" />
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,12 @@
+<?php
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+
+$message = $block->getMessage();
+if (!$message) {
+    $message = __('You have added this product to your wishlist');
+}
+?>
+
+<h3 class="mb-message-successs"><?php echo $message; ?></h3>

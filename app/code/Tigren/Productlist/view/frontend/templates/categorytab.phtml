@@ -1,0 +1,49 @@
+<?php if ($block->getScopeConfig('productlist/general/enabled')): ?>
+    <div class="category-tabs">
+        <?php for ($i = 1; $i <= 3; $i++): ?>
+            <?php if ($block->getScopeConfig('productlist/categorytab_options/tab' . $i . '_enabled')): ?>
+                <?php $tabTitle = $block->getScopeConfig('productlist/categorytab_options/tab' . $i . '_title'); ?>
+                <?php $tabLink = $block->getScopeConfig('productlist/categorytab_options/tab' . $i . '_link'); ?>
+                <?php $categoryIds = explode(",", $block->getScopeConfig('productlist/categorytab_options/tab' . $i . '_category_ids')); ?>
+                <?php
+                echo $block->getLayout()->createBlock('Tigren\Productlist\Block\Productlist')
+                    ->setTabTitle($tabTitle)
+                    ->setTabLink($tabLink)
+                    ->setCategoryIds($categoryIds)
+                    ->setTemplate('Tigren_Productlist::categorytab/default.phtml')
+                    ->toHtml();
+                ?>
+            <?php endif ?>
+        <?php endfor ?>
+        <script type="text/javascript">
+            require([
+                'jquery',
+                'mage/translate',
+                'jquery/ui'
+            ], function ($) {
+                $(document).ready(function () {
+                    $('.category-tab-head').on('click', function () {
+                        var url = $(this).attr('data-url'),
+                            categoryId = $(this).attr('data-category-id');
+                        $.ajax({
+                            url: url,
+                            datatype: 'json',
+                            beforeSend: function () {
+                                var body = $('body').loader();
+                                body.loader('show');
+                            },
+                            success: function (response) {
+                                $('#products_in_cat_' + categoryId).parent().find('.products-in-cat').empty();
+                                $('#category-tab-head-' + categoryId).parent().find('.category-tab-head').removeClass('active');
+                                $('#category-tab-head-' + categoryId).addClass('active');
+                                $('#products_in_cat_' + categoryId).append(response.html);
+                                var body = $('body').loader();
+                                body.loader('hide');
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+    </div>
+<?php endif ?>

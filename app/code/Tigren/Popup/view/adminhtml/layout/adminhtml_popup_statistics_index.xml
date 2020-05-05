@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Tigren\Popup\Block\Adminhtml\Statistics" name="adminhtml.popup.statistics.grid.container">
+            	<block class="Tigren\Popup\Block\Adminhtml\Statistics\Grid" name="adminhtml.popup.statistics.grid" as="grid">
+	                <arguments>
+	                    <argument name="id" xsi:type="string">popupStatisticGrid</argument>
+	                    <argument name="default_sort" xsi:type="string">instance_id</argument>
+	                    <argument name="default_dir" xsi:type="string">DESC</argument>
+	                    <argument name="dataSource" xsi:type="object">Tigren\Popup\Model\ResourceModel\Instance\Collection</argument>
+	                </arguments>
+	                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="adminhtml.popup.statistics.grid.columnSet" as="grid.columnSet">
+	                    <arguments>
+	                        <argument name="rowUrl" xsi:type="array">
+	                            <item name="path" xsi:type="string">adminhtml/popup_instance/edit</item>
+	                            <item name="extraParamsTemplate" xsi:type="array">
+	                                <item name="instance_id" xsi:type="string">getId</item>
+	                                <item name="code" xsi:type="string">getCode</item>
+	                            </item>
+	                        </argument>
+	                    </arguments>
+	                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="instance_id">
+	                        <arguments>
+	                            <argument name="header" xsi:type="string" translate="true">Popup ID</argument>
+	                            <argument name="index" xsi:type="string">instance_id</argument>
+	                            <argument name="column_css_class" xsi:type="string">col-id</argument>
+	                            <argument name="header_css_class" xsi:type="string">col-id</argument>
+	                        </arguments>
+	                    </block>
+	                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="title">
+	                        <arguments>
+	                            <argument name="header" xsi:type="string" translate="true">Popup</argument>
+	                            <argument name="index" xsi:type="string">title</argument>
+	                        </arguments>
+	                    </block>
+	                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="is_active">
+	                        <arguments>
+	                            <argument name="header" xsi:type="string" translate="true">Is Active</argument>
+	                            <argument name="index" xsi:type="string">instance_id</argument>
+	                            <argument name="filter" xsi:type="string">0</argument>
+                            	<argument name="renderer" xsi:type="string">Tigren\Popup\Block\Adminhtml\Statistics\Grid\Column\Renderer\IsActive</argument>
+	                        </arguments>
+	                    </block>
+	                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="impressions">
+	                        <arguments>
+	                            <argument name="header" xsi:type="string" translate="true">Impressions</argument>
+	                            <argument name="index" xsi:type="string">instance_id</argument>
+	                            <argument name="filter" xsi:type="string">0</argument>
+                            	<argument name="renderer" xsi:type="string">Tigren\Popup\Block\Adminhtml\Statistics\Grid\Column\Renderer\Impressions</argument>
+	                        </arguments>
+	                    </block>
+	                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="goal_completion">
+	                        <arguments>
+	                            <argument name="header" xsi:type="string" translate="true">Goal Completion</argument>
+	                            <argument name="index" xsi:type="string">instance_id</argument>
+	                            <argument name="filter" xsi:type="string">0</argument>
+                            	<argument name="renderer" xsi:type="string">Tigren\Popup\Block\Adminhtml\Statistics\Grid\Column\Renderer\GoalCompletion</argument>
+	                        </arguments>
+	                    </block>
+	                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="click_inside_popup">
+	                        <arguments>
+	                            <argument name="header" xsi:type="string" translate="true">Click Inside Popup</argument>
+	                            <argument name="index" xsi:type="string">instance_id</argument>
+	                            <argument name="filter" xsi:type="string">0</argument>
+                            	<argument name="renderer" xsi:type="string">Tigren\Popup\Block\Adminhtml\Statistics\Grid\Column\Renderer\ClickInsidePopup</argument>
+	                        </arguments>
+	                    </block>
+	                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="close_without_interaction">
+	                        <arguments>
+	                            <argument name="header" xsi:type="string" translate="true">Close Without Interaction</argument>
+	                            <argument name="index" xsi:type="string">instance_id</argument>
+	                            <argument name="filter" xsi:type="string">0</argument>
+                            	<argument name="renderer" xsi:type="string">Tigren\Popup\Block\Adminhtml\Statistics\Grid\Column\Renderer\CloseWithoutInteraction</argument>
+	                        </arguments>
+	                    </block>
+	                </block>
+	            </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

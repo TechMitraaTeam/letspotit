@@ -1,0 +1,31 @@
+<?php $tabLink = $block->getTabLink(); ?>
+<?php $categoryIds = $block->getCategoryIds(); ?>
+<div class="category-product-tab"> <!-- Fill category id in here to set unique value -->
+    <div class="tab-title">
+        <h4><?php echo $block->getTabTitle(); ?></h4>
+        <ul>
+            <?php foreach ($categoryIds as $index => $_categoryId): ?>
+                <li id="category-tab-head-<?php echo $_categoryId; ?>" class="category-tab-head tab-head<?php if ($index == 0): ?> active<?php endif ?>"
+                    data-category-id="<?php echo $_categoryId; ?>"
+                    data-url="<?php echo $block->getUrl("productlist/newproduct/ajax", array('category_id' => $_categoryId)); ?>"><?php echo $block->getCategoryData($_categoryId)->getName(); ?></li>
+            <?php endforeach ?>
+        </ul>
+        <a class="view-all" href="<?php echo $tabLink; ?>"><?php /* @escapeNotVerified */
+            echo __('View All') ?> &raquo;</a>
+    </div>
+    <div class="tab-content">
+        <?php foreach ($categoryIds as $index => $_categoryId): ?>
+            <div class="products-in-cat" id="products_in_cat_<?php echo $_categoryId; ?>">
+                <!-- Load new products for first tab -->
+                <?php if ($index == 0): ?>
+                    <?php
+                    echo $block->getLayout()->createBlock('Tigren\Productlist\Block\Item\NewProduct')
+                        ->setCategory($block->getCategoryData($_categoryId))
+                        ->setTemplate('Tigren_Productlist::newproducts.phtml')
+                        ->toHtml();
+                    ?>
+                <?php endif ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>

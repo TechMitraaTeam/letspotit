@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Magento\Catalog\Block\Product\View" as="ajaxcart_success_message"
+               template="Tigren_Ajaxcart::success_message.phtml">
+            <block class="Tigren\Ajaxcart\Block\Message" name="ajaxcart.message" template="message.phtml"/>
+            <block class="Tigren\Ajaxcart\Block\Product\ConfigurableOption" as="product_option" template="product/option.phtml"/>
+            <block class="Tigren\Ajaxcart\Block\Product\Image" as="product_image" template="product/image.phtml"/>
+            <block class="Tigren\Ajaxcart\Block\CartInfo" name="ajaxcart.cartinfo" template="cartinfo.phtml" ifconfig="ajaxcart/general/show_cart_info" />
+            <block class="Magento\Catalog\Block\Product\ProductList\Related" name="ajaxcart.product.related" 
+                   template="Magento_Catalog::product/list/items.phtml" ifconfig="ajaxcart/general/show_related_products">
+                <arguments>
+                    <argument name="type" xsi:type="string">related</argument>
+                </arguments>
+                <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="related.product.addto" as="addto">
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                           name="related.product.addto.compare" as="compare"
+                           template="Magento_Catalog::product/list/addto/compare.phtml"/>
+                </block>
+            </block>
+        </block>
+    </container>
+</layout>

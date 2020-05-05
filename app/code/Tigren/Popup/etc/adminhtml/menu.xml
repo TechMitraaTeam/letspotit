@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Tigren_Popup::popup" title="Popup Plus" module="Tigren_Popup" sortOrder="50"
+             resource="Tigren_Popup::popup"/>
+        <add id="Tigren_Popup::manage_popup" title="Manage Popups" module="Tigren_Popup" sortOrder="0"
+             parent="Tigren_Popup::popup" action="adminhtml/popup_instance"
+             resource="Tigren_Popup::manange_popups"/>
+        <add id="Tigren_Popup::statistics" title="Statistics" module="Tigren_Popup" sortOrder="10"
+             parent="Tigren_Popup::popup" action="adminhtml/popup_statistics" resource="Tigren_Popup::statistics"/>
+        <add id="Tigren_Popup::settings" title="Settings" module="Tigren_Popup" sortOrder="20"
+             parent="Tigren_Popup::popup" action="adminhtml/system_config/edit/section/popuppro"
+             resource="Tigren_Popup::settings"/>
+    </menu>
+</config>

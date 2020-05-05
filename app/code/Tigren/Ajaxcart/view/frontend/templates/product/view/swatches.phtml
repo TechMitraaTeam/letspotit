@@ -1,0 +1,32 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+?>
+<?php /** @var $block \Tigren\Ajaxcart\Block\Product\Renderer\Configurable */ ?>
+<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */
+echo $block->getViewFileUrl('Magento_Swatches::css/swatches.css') ?>"/>
+
+<div class="swatch-opt" data-role="swatch-options"></div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage',
+        'tigren/swatchRenderer'
+    ], function ($) {
+        $('[data-role=swatch-options]').SwatchRenderer({
+            "jsonConfig": <?php /* @escapeNotVerified */
+            echo $swatchOptions = $block->getJsonConfig(); ?>,
+            "jsonSwatchConfig": <?php /* @escapeNotVerified */
+            echo $swatchOptions = $block->getJsonSwatchConfig(); ?>,
+            "selectorProduct": '#mb-ajaxcart-wrapper',
+            "mediaCallback": "<?php /* @escapeNotVerified */
+                echo $block->getMediaCallback() ?>",
+            "onlyMainImg": <?php /* @escapeNotVerified */
+            echo $block->getVar('change_only_base_image',
+                'Magento_Swatches') ?: 'false'; ?>
+        });
+    });
+
+</script>

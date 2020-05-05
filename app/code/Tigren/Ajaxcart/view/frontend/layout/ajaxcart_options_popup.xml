@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Magento\Catalog\Block\Product\Gallery" as="product_image" template="product/image.phtml"/>
+        <block class="Magento\Catalog\Block\Product\View" name="product.info" template="product/view/form.phtml"
+               after="alert.urls">
+            <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+            <container name="product.info.form.content" as="product_info_form_content">
+                <block class="Magento\GroupedProduct\Block\Product\View\Type\Grouped" name="product.info.grouped"
+                       as="grouped" template="Tigren_Ajaxcart::product/view/type/options/grouped.phtml"/>
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" as="addtocart"
+                       template="Tigren_Ajaxcart::product/view/addtocart.phtml"/>
+            </container>
+            <block class="Magento\Framework\View\Element\Template" name="product.info.form.options"
+                   as="options_container">
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper"
+                       as="product_options_wrapper" template="Tigren_Ajaxcart::popup_wrapper.phtml">
+                    <block class="Magento\Catalog\Block\Product\View" name="ajaxcart.product.price" as="product_price"
+                           template="product/view/price_clone.phtml"/>
+                    <block class="Magento\Catalog\Block\Product\View\Options" name="product.info.options"
+                           as="product_options" template="product/view/options.phtml">
+                        <block class="Magento\Catalog\Block\Product\View\Options\Type\DefaultType" as="default"
+                               template="product/view/options/type/default.phtml"/>
+                        <block class="Magento\Catalog\Block\Product\View\Options\Type\Text" as="text"
+                               template="product/view/options/type/text.phtml"/>
+                        <block class="Magento\Catalog\Block\Product\View\Options\Type\File" as="file"
+                               template="product/view/options/type/file.phtml"/>
+                        <block class="Magento\Catalog\Block\Product\View\Options\Type\Select" as="select"
+                               template="product/view/options/type/select.phtml"/>
+                        <block class="Magento\Catalog\Block\Product\View\Options\Type\Date" as="date"
+                               template="product/view/options/type/date.phtml"/>
+                    </block>
+
+                    <block class="Tigren\Ajaxcart\Block\Product\Renderer\Configurable"
+                           as="type_options_configurable"/>
+
+                    <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle"
+                           name="product.info.bundle.options" as="type_options_bundle"
+                           template="Tigren_Ajaxcart::product/view/type/options/bundle.phtml">
+                        <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Select"
+                               name="product.info.bundle.options.select" as="select"/>
+                        <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Multi"
+                               name="product.info.bundle.options.multi" as="multi"/>
+                        <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Radio"
+                               name="product.info.bundle.options.radio" as="radio"/>
+                        <block class="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option\Checkbox"
+                               name="product.info.bundle.options.checkbox" as="checkbox"/>
+                    </block>
+
+                    <block class="Magento\Framework\View\Element\Html\Calendar" name="html_calendar" as="html_calendar"
+                           template="Magento_Theme::js/calendar.phtml"/>
+                    <block class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper.bottom"
+                           as="product_options_wrapper_bottom" template="product/view/options/wrapper/bottom.phtml">
+                        <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart.additional"
+                               as="product.info.addtocart" template="Tigren_Ajaxcart::product/view/addtocart.phtml"/>
+                    </block>
+                </block>
+            </block>
+        </block>
+        <block class="Magento\Framework\Pricing\Render" name="product.price.render.default">
+            <arguments>
+                <argument name="price_render_handle" xsi:type="string">catalog_product_prices</argument>
+                <argument name="use_link_for_as_low_as" xsi:type="boolean">true</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>

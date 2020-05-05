@@ -1,0 +1,10 @@
+<script type="text/x-magento-init">
+{
+    "*": {
+        "tigren/ajaxToCart" : <?php echo $block->getAjaxCartInitOptions(); ?>
+    }
+}
+</script>
+<script>
+    window.ajaxCartLoaderOptions = <?php echo $block->getAjaxSidebarInitOptions(); ?>;
+</script>

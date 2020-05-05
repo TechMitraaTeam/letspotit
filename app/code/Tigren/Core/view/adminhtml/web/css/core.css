@@ -1,0 +1,23 @@
+.config-nav-block.tigren-config-tab strong:before {
+    background: url(../images/tigren_logo.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+fieldset#tigren_info_information h3 {
+    color: #eb5202;
+    margin-bottom: 10px;
+}
+
+fieldset#tigren_info_installed_extensions td.label label {
+    padding-bottom: 7px;
+}
+
+.tigren-follow ul li {
+    float: left;
+    list-style: none;
+}

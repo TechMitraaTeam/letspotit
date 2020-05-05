@@ -1,0 +1,23 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_product = $block->getProduct() ?>
+
+<div class="product-add-form">
+    <div class="price-box price-final_price">
+        <?php echo $block->getProductPriceHtml(
+            $_product,
+            \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+            \Magento\Framework\Pricing\Render::ZONE_ITEM_VIEW,
+            [
+                'price_id_suffix' => '_clone'
+            ]
+        ) ?>
+
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php
+/** @var $block \Magento\ConfigurableProduct\Block\Product\View\Type\Configurable */
+$_product = $block->getProduct();
+$_attributes = $block->decorateArray($block->getAllowAttributes());
+?>
+<?php if ($_product->isSaleable() && count($_attributes)): ?>
+    <?php foreach ($_attributes as $_attribute): ?>
+        <div class="field configurable required">
+            <label class="label" for="attribute<?php /* @escapeNotVerified */
+            echo $_attribute->getAttributeId() ?>">
+                <span><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></span>
+            </label>
+            <div class="control">
+                <select name="super_attribute[<?php /* @escapeNotVerified */
+                echo $_attribute->getAttributeId() ?>]"
+                        data-validate="{required:true}"
+                        id="attribute<?php /* @escapeNotVerified */
+                        echo $_attribute->getAttributeId() ?>"
+                        class="super-attribute-select">
+                    <option value=""><?php /* @escapeNotVerified */
+                        echo __('Choose an Option...') ?></option>
+                    <?php foreach ($_attribute->getOptions() as $option): ?>
+                        <option value="<?php echo $option['value_index'] ?>"><?php /* @escapeNotVerified */
+                            echo $option['store_label'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

@@ -1,0 +1,21 @@
+{
+    "name": "tigren/module-productlist",
+    "description": "",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "info@tigren.com",
+            "name": "Tigren"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Tigren\\Productlist\\": ""
+        }
+    }
+}

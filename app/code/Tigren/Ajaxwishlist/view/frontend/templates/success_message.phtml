@@ -1,0 +1,35 @@
+<?php
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+//$blockObj = $block->getLayout()->createBlock('Tigren\Ajaxwishlist\Block\Main');
+//echo $blockObj->getMyCustomMethod();
+$_product = $block->getProduct(); ?>
+<div class="mb-login-popup-title">
+    <strong><?php echo __('Success'); ?></strong>
+</div>
+<div class="mb-ajaxsuite-popup-border ajaxwishlist-success-box">
+    <?php echo $block->getChildHtml('ajaxwishlist.message'); ?>
+
+    <h2 class="product-name"><?php echo $_product->getName() ?></h2>
+    <?php echo $block->getChildHtml('product_option'); ?>
+    <?php echo $block->getChildHtml('product_image'); ?>
+    <div class="ajaxwishlist-buttons">
+        <button type="button" id="ajaxwishlist_btn_close_popup" class="action primary mb-ajaxsuite-close"
+                title="<?php echo __('Close') ?>">
+            <span><?php echo __('Close ') ?></span>
+            <?php
+            if ($popupTTL = $this->helper('Tigren\Ajaxsuite\Helper\Data')->getTTLAjaxSuite()) {
+                ?>
+                (<span class="ajaxsuite-autoclose-countdown"><?php echo $popupTTL ?></span>)
+                <?php
+            }
+            ?>
+        </button>
+        <button type="button" id="ajaxwishlist" class="action focus primary"
+                title="<?php echo __('View Wishlist') ?>"
+                onClick="window.location = '<?php echo $block->getUrl('wishlist'); ?>'">
+            <span><?php echo __('View Wishlist') ?></span>
+        </button>
+    </div>
+</div>

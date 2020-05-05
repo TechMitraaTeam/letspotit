@@ -1,0 +1,38 @@
+<?php
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ *
+ * @var $block \Tigren\Ajaxlogin\Block\Messages\Register\Error
+ */
+?>
+<div class="mb-login-popup-title center">
+    <span class="mb-login-popup-title-error"></span>
+    <strong><?php echo __('Error'); ?></strong>
+</div>
+<div class="mb-ajaxsuite-popup-border mb-ajaxlogin-popup mb-ajaxlogin-message-error">
+    <div class="mb-login-container-login">
+        <div class="block-content" aria-labelledby="block-customer-login-heading">
+            <div class="mb-error-message">
+                <h4 class="mb-message-error"><?php echo __('Register Failed!'); ?></h4>
+                <p class="message"></p>
+            </div>
+            <div class="mb-actions-toolbar">
+                <div class="secondary mb-inline">
+                    <button class="action primary mb-continue" id="ajaxlogin_btn_close_popup" type="button">
+                        <span>
+                            <span><?php echo __('Close') ?></span>
+                        </span>
+                    </button>
+                </div>
+                <div class="secondary mb-inline">
+                    <button class="action primary mb-create-login" id="ajaxlogin_btn_to_register" type="button">
+                        <span>
+                            <span><?php echo __('Create an account') ?></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

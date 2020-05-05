@@ -1,0 +1,60 @@
+<div class="tigren-bannermanager slider">
+    <?php
+    $htmlId = $block->getBannerItemHtmlId();
+    $bannerCollection = $block->getBannerCollection();
+    ?>
+    <style>
+        .custom-navigation {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .custom-navigation > * {
+            display: table-cell;
+        }
+
+        .custom-navigation > a {
+            width: 50px;
+        }
+
+        .custom-navigation .flex-next {
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript">
+        require(['jquery','tigren/flexslider'], function($) {
+            $(document).ready(function($) {
+                var flexSliderSelector = '<?php echo $htmlId; ?>';
+                $('.' + flexSliderSelector).flexslider({
+                    animation: "slide",
+                    controlsContainer: $(".custom-controls-container"),
+                    customDirectionNav: $(".custom-navigation a")
+                });
+            });
+        });
+
+    </script>
+    <div class="tigren-bannermanager-slider">
+        <div id="<?php echo $htmlId ?>" class="flexslider flexslider-content-image <?php echo $htmlId ?>"
+             style="margin:auto">
+            <ul class="slides">
+                <?php foreach ($bannerCollection as $banner): ?>
+                    <li>
+                        <a href="<?php echo $banner->getBannerUrl() ?>"
+                           <?php echo $banner->getTarget() ? 'target="_blank" ' : ''; ?>style="display:block;">
+                            <img alt="<?php echo $banner->getTitle() ?>"
+                                 src="<?php echo $block->getBannerImageUrl($banner) ?>"
+                                 title="<?php echo $banner->getDescription() ?>"/>
+                        </a>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+        <div class="custom-navigation">
+            <a href="#" class="flex-prev">Prev</a>
+            <div class="custom-controls-container"></div>
+            <a href="#" class="flex-next">Next</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="chooser-container" id="banners-ids">
+    <input disabled="disabled" type="text" class="input-text entities" name="banners-selected"
+           value="<?php echo $block->getElementValue() ?>" readonly="readonly"/>
+    <a id="widget-option-chooser" href="javascript:void(0)"
+       title="<?php echo $block->escapeJsQuote(__('Select Banners')); ?>">
+        <img src="<?php echo $block->getViewFileUrl('images/rule_chooser_trigger.gif') ?>"
+             alt="<?php echo $block->escapeJsQuote(__('Open Chooser')); ?>"/>
+    </a>
+    <a id="widget-hide-chooser" href="javascript:void(0)" title="<?php echo $block->escapeJsQuote(__('Apply')); ?>">
+        <img src="<?php echo $block->getViewFileUrl('images/rule_component_apply.gif') ?>"
+             alt="<?php echo $block->escapeJsQuote(__('Apply')); ?>"/>
+    </a>
+    <div id="banners-chooser"></div>
+</div>
+<script>
+    require
+    ([
+        'jquery',
+        'mage/template',
+        'Magento_Ui/js/modal/alert',
+        "prototype",
+        "extjs/ext-tree-checkbox"
+    ], function (jQuery, mageTemplate, alert)
+    {
+        var WidgetSelect = {
+            selectedItems: {},
+
+            addPage: function(data)
+            {
+                if (data.banners) {
+                    var selected_entities = data['banners'].split(',');
+                    if (selected_entities.length > 0) {
+                        for (var i = 0; i < selected_entities.length; i++) {
+                            this.addBannerItemToSelection(data.group, selected_entities[i]);
+                        }
+                    }
+                }
+            },
+
+            addBannerItemToSelection: function (groupId, item)
+            {
+                if (undefined == this.selectedItems[groupId]) {
+                    this.selectedItems[groupId] = $H({});
+                }
+                if (!isNaN(parseInt(item))) {
+                    this.selectedItems[groupId].set(item, 1);
+                }
+            },
+            removeBannerItemFromSelection: function (groupId, item) {
+                if (undefined !== this.selectedItems[groupId]) {
+                    this.selectedItems[groupId].unset(item);
+                }
+            },
+            checkBanner: function (event) {
+                var elm = event.memo.element,
+                    container = event.target.up('#banners-chooser'),
+                    selectionId = container.id,
+                    entitiesElm = container.up('.admin__field').down('input[type="text"].entities'),
+                    bannersElm = container.up('.admin__field').down('#mb-banners-selected');
+                if (elm.checked) {
+                    this.addBannerItemToSelection(selectionId, elm.value);
+                } else {
+                    this.removeBannerItemFromSelection(selectionId, elm.value);
+                }
+                if (entitiesElm) {
+                    entitiesElm.value = this.selectedItems[selectionId].keys().join(',');
+                    bannersElm.value = this.selectedItems[selectionId].keys().join(',');
+                }
+            }
+        };
+
+        jQuery('#widget-option-chooser').on('click', function ()
+        {
+            chooser = $('banners-chooser');
+            entities = chooser.up('.admin__field').down('#mb-banners-selected').value;
+            postParameters = $H({selected:entities});
+            url = '<?php echo $block->getBannersChooserUrl(); ?>';
+            if (chooser.innerHTML == '') {
+                new Ajax.Request(url, {
+                    method: 'post',
+                    parameters: postParameters,
+                    onSuccess: function (transport) {
+                        try {
+                            if (transport.responseText) {
+                                chooser.insert(transport.responseText);
+                                chooser.show();
+                            }
+                        } catch (e) {
+                            alert({
+                                content: 'Error occurs during loading chooser.'
+                            });
+                        }
+                    }
+                });
+            }else {
+                chooser.show();
+            }
+
+        });
+
+        jQuery('#widget-hide-chooser').on('click', function()
+        {
+            chooser = $('banners-chooser');
+            if (chooser) {
+                chooser.hide();
+            }
+        });
+
+        jQuery(function () {
+            <?php $page = $block->getPage(); ?>
+            <?php if ($page): ?>
+            WidgetSelect.addPage(<?php echo Zend_Json::encode($page) ?>);
+            <?php endif; ?>
+
+            Event.observe(document, 'banners:changed', function(event) {
+                WidgetSelect.checkBanner(event);
+            });
+        });
+    })
+
+
+</script>

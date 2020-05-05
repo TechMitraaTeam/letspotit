@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2017 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <action name="ajaxlogin/login/logout"/>
+    <action name="ajaxlogin/login/create"/>
+    <action name="ajaxlogin/login/socialLogin"/>
+    <action name="ajaxlogin/login/callback"/>
+    <action name="ajaxlogin/login/login">
+        <section name="checkout-data"/>
+        <section name="cart"/>
+    </action>
+</config>

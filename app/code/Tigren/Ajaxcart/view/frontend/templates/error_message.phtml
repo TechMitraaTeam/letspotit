@@ -1,0 +1,35 @@
+<?php
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+?>
+<?php $_product = $block->getProduct(); ?>
+<div class="mb-login-popup-title center">
+    <strong><?php echo __('Error'); ?></strong>
+</div>
+<div class="mb-ajaxsuite-popup-border ajaxcart-success-box">
+    <div class="error-content">
+        <p class="error-message"></p>
+        <h2 class="product-name"><?php echo $_product->getName() ?></h2>
+        <?php echo $block->getChildHtml('product_option'); ?>
+        <?php echo $block->getChildHtml('product_image'); ?>
+    </div>
+    <div class="ajaxcart-buttons ajaxsuite-buttons">
+        <button type="button" id="ajaxcart_cancel" class="action primary mb-ajaxsuite-close"
+                title="<?php echo __('Continue Shopping') ?>">
+            <span><?php echo __('Continue Shopping ') ?></span>
+            <?php
+            if ($popupTTL = $this->helper('Tigren\Ajaxsuite\Helper\Data')->getTTLAjaxSuite()) {
+                ?>
+                (<span class="ajaxsuite-autoclose-countdown"><?php echo $popupTTL ?></span>)
+                <?php
+            }
+            ?>
+        </button>
+        <button type="button" id="ajaxcart_checkout" class="action focus primary"
+                title="<?php echo __('View Cart') ?>"
+                onClick="window.location = '<?php echo $block->getUrl('checkout/cart'); ?>'">
+            <span><?php echo __('View Cart') ?></span>
+        </button>
+    </div>
+</div>

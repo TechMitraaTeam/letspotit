@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="tigren" class="tigren-config-tab" translate="label" sortOrder="9000">
+            <label>Tigren</label>
+        </tab>
+        <section id="productlist" translate="label" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Advanced Product List</label>
+            <tab>tigren</tab>
+            <resource>Tigren_Productlist::config_productlist</resource>
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General Options</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Advanced Product List</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="categorytab_options" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Tab Options</label>
+                <field id="tab1_enabled" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Tab 1</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="tab1_title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Title</label>
+                    <depends>
+                        <field id="tab1_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab1_link" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Redirect</label>
+                    <depends>
+                        <field id="tab1_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab1_category_ids" translate="label" type="multiselect" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Category</label>
+                    <source_model>Tigren\Productlist\Model\Config\Source\CategoryList</source_model>
+                    <depends>
+                        <field id="tab1_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab2_enabled" translate="label" type="select" sortOrder="5" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Tab 2</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="tab2_title" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Title</label>
+                    <depends>
+                        <field id="tab2_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab2_link" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Redirect</label>
+                    <depends>
+                        <field id="tab2_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab2_category_ids" translate="label" type="multiselect" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Category</label>
+                    <source_model>Tigren\Productlist\Model\Config\Source\CategoryList</source_model>
+                    <depends>
+                        <field id="tab2_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab3_enabled" translate="label" type="select" sortOrder="9" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Tab 3</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="tab3_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Title</label>
+                    <depends>
+                        <field id="tab3_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab3_link" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tab Redirect</label>
+                    <depends>
+                        <field id="tab3_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tab3_category_ids" translate="label" type="multiselect" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Category</label>
+                    <source_model>Tigren\Productlist\Model\Config\Source\CategoryList</source_model>
+                    <depends>
+                        <field id="tab3_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

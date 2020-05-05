@@ -1,0 +1,37 @@
+<?php $parentCategoryId = $block->getData('category_id'); ?>
+<?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $parentCategory = $objectManager->create('Magento\Catalog\Model\Category')->load($parentCategoryId);
+    $subCats = $parentCategory->getChildrenCategories();
+?>
+<div class="category-product-tab" id="category_<?php echo $parentCategoryId ?>_tab"> <!-- Fill category id in here to set unique value -->
+    <div class="tab-title">
+        <h4><?php echo $parentCategory->getName();?></h4>
+        <ul>
+            <?php foreach($subCats as $sub_category):?>
+                <li onclick="loadProductItems('<?php echo $sub_category->getId();?>', this)" id="sub_cat_<?php echo $sub_category->getId();?>" data-url="<?php echo $block->getUrl("productlist/newproduct/ajax", array('category_id' => $sub_category->getId())); ?>"><?php echo $sub_category->getName();?></li>
+            <?php endforeach ?>
+        </ul>
+        <a class="view-all" href="<?php echo $parentCategory->getUrl();?>"><?php /* @escapeNotVerified */ echo __('View All') ?> &raquo;</a>
+    </div>
+    <div class="tab-content">
+        <?php foreach($subCats as $sub_category):?>
+            <div class="products-in-cat" style="position: relative" id="products_in_cat_<?php echo $sub_category->getId();?>">
+
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>
+<script type="text/javascript">
+    function loadProductItems(categoryId, element) {
+        var url = jQuery(element).attr('data-url');
+        jQuery.ajax({
+            url: url,
+            datatype: 'json',
+            success: function (response) {
+                jQuery('.products-in-cat').empty();
+                jQuery('#products_in_cat_' + categoryId).append(response.html);
+            }
+        });
+    }
+</script>

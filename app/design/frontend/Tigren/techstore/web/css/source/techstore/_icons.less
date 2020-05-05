@@ -1,0 +1,91 @@
+//
+//  ICONS
+//  ---------------------------------------------
+& when (@media-common = true) {
+  .header-bottom-container .category-nav .box-title:before,
+  .header-bottom-container .category-nav .box-title:after,
+  .page-header .header-bottom-container .category-nav .nav-sections .navigation > ul > li.level0 > .level-top:after,
+  .page-header .header.content .minicart-wrapper .action.showcart:before,
+  .page-header > .header.content .header-wishlist-link > a:before,
+  #back-top:before, .action.towishlist:before, .action.tocompare:before, .action.todetails:before {
+    background-image:url('../images/techstore-icons.png');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    content: "";
+  }
+  #back-top {
+    position: fixed;
+    right: @indent__base;
+    bottom: @indent__m * 2;
+    width: @indent__m * 2;
+    height: @indent__m * 2;
+    background-color: @theme_main_color;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 99;
+    cursor: pointer;
+    &.fixed {
+      opacity: 1;
+    }
+    &:before {
+      width:10px;
+      height:17px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-position: -118px -87px;
+      transform: translate(-50%, -50%);
+    }
+    &:hover {
+      background-color: @color-black;
+    }
+  }
+  .action {
+    &.towishlist {
+      position: relative;
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -9px;
+        margin-left: -10px;
+        vertical-align: top;
+        display: inline-block;
+        width: 19px;
+        height: 17px;
+        background-position: -5px -123px;
+      }
+    }
+    &.todetails {
+      position: relative;
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -9px;
+        margin-left: -9px;
+        vertical-align: top;
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        background-position: -63px -89px;
+      }
+    }
+    &.tocompare {
+      position: relative;
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -5px;
+        margin-left: -10px;
+        vertical-align: top;
+        display: inline-block;
+        width: 19px;
+        height: 10px;
+        background-position: -61px -125px;
+      }
+    }
+  }
+}

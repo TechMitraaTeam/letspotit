@@ -1,0 +1,7 @@
+<?php
+    $_product = $block->getProduct();
+?>
+<a class="action todetails"
+   href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
+    <span><?php echo $block->escapeHtml(__('View Details')); ?></span>
+</a>

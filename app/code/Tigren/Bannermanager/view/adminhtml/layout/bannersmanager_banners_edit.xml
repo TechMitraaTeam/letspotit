@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2016 www.tigren.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Tigren\Bannermanager\Block\Adminhtml\Banner\Edit\Tabs"
+                   name="bannermanager_banner_edit_tabs">
+                <block class="Tigren\Bannermanager\Block\Adminhtml\Banner\Edit\Tab\Main"
+                       name="bannermanager_banner_edit_tab_main"/>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Tigren\Bannermanager\Block\Adminhtml\Banner\Edit" name="bannermanager_banner_edit"/>
+        </referenceContainer>
+    </body>
+</page>
